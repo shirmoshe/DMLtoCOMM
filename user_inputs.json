@@ -1,0 +1,20 @@
+{
+  "parallelism": {
+    "data_parallel_size": 1,
+    "pipeline_parallel_size": 1,
+    "tensor_parallel_size": 1
+  },
+  "topology": {
+    "__comment": "type can be: full_mesh, fat_tree",
+    "type": "",
+    "num_gpus": 0,
+    "link_latency_ms": 0,
+    "bandwidth_gbps": 0
+  },
+  "hardware": {
+    "gpus": []
+  },
+  "model": {
+    "onnx_path": ""
+  }
+}
