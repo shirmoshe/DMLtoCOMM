@@ -64,13 +64,14 @@ def create_svg_graph(nodes_list, output_file="onnx_model_graph"):
             dot.edge(str(id(parent)), str(id(node)))
 
     # Render the graph to an SVG file
-    out_path = dot.render(output_file, view=False)  # view=False so we can open explicitly
+    out_path = dot.render(f"svg_file/{output_file}", view=False)  # view=False so we can open explicitly
     print(f"Graph saved as: {out_path}")
 
     # Automatically open the SVG in a new browser tab
-    webbrowser.open_new_tab(out_path)
+    #webbrowser.open_new_tab(out_path)
 
 
+# unused function
 def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
     """
     Generate an SVG graph using Graphviz where each GPU's nodes are grouped into a subgraph (cluster).
@@ -108,11 +109,11 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
             dot.edge(str(id(parent)), str(id(node)))
 
     # Render
-    out_path = dot.render(output_file, view=False)
+    out_path = dot.render(f"svg_file/{output_file}", view=False)
     print(f"Clustered Graph saved to: {out_path}")
     webbrowser.open_new_tab(out_path)
 
-def create_interactive_high_level_svg(d, model_replicas, output_file="interactive_high_level"):
+def create_interactive_high_level_svg(model_replicas, output_file="interactive_high_level"):
     """
     Creates an interactive high-level SVG graph:
     - One node per GPU, linking to detailed GPU graph (e.g., gpu_0_detail.svg)
@@ -144,7 +145,7 @@ def create_interactive_high_level_svg(d, model_replicas, output_file="interactiv
         label = f"GPU {gpu}\n(ReplicaModel)"
         href = f"gpu_{gpu}_detail.svg"
 
-        dot.node(gpu_node_name, label=label, shape="box3d", style="filled", fillcolor="lightgray", href=href)
+        dot.node(gpu_node_name, label=label, shape="box3d", style="filled", fillcolor="lightgray", href=href, target="_blank")
 
         # For each collective, check if it's linked to or from this replica
         for collective_node in collectives:
@@ -155,6 +156,6 @@ def create_interactive_high_level_svg(d, model_replicas, output_file="interactiv
                     dot.edge(gpu_node_name, str(id(collective_node)))
 
     # Step 5: Render
-    out_path = dot.render(output_file, view=False)
+    out_path = dot.render(f"svg_file/{output_file}", view=False)
     print(f"Interactive high-level SVG saved to: {out_path}")
     webbrowser.open_new_tab(out_path)

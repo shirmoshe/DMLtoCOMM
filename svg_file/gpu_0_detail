@@ -1,0 +1,728 @@
+// ONNX Model Graph
+digraph {
+	2309204524864 [label="ScatterInput
+(Scatter)
+GPU 0"]
+	2309619345632 [label="resnetv17_conv0_fwd
+(Conv)
+GPU 0"]
+	2309619345344 [label="resnetv17_batchnorm0_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619345392 [label="resnetv17_relu0_fwd
+(Relu)
+GPU 0"]
+	2309619345584 [label="resnetv17_pool0_fwd
+(MaxPool)
+GPU 0"]
+	2309619346208 [label="resnetv17_stage1_conv0_fwd
+(Conv)
+GPU 0"]
+	2309619345440 [label="resnetv17_stage1_batchnorm0_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619345728 [label="resnetv17_stage1_relu0_fwd
+(Relu)
+GPU 0"]
+	2309619345872 [label="resnetv17_stage1_conv1_fwd
+(Conv)
+GPU 0"]
+	2309619345920 [label="resnetv17_stage1_batchnorm1_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619346448 [label="resnetv17_stage1_relu1_fwd
+(Relu)
+GPU 0"]
+	2309619346016 [label="resnetv17_stage1_conv2_fwd
+(Conv)
+GPU 0"]
+	2309619345968 [label="resnetv17_stage1_batchnorm2_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619346160 [label="resnetv17_stage1_conv3_fwd
+(Conv)
+GPU 0"]
+	2309619345776 [label="resnetv17_stage1_batchnorm3_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619346256 [label="resnetv17_stage1__plus0
+(Add)
+GPU 0"]
+	2309619346064 [label="resnetv17_stage1_activation0
+(Relu)
+GPU 0"]
+	2309619346688 [label="resnetv17_stage1_conv4_fwd
+(Conv)
+GPU 0"]
+	2309619346736 [label="resnetv17_stage1_batchnorm4_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619346784 [label="resnetv17_stage1_relu2_fwd
+(Relu)
+GPU 0"]
+	2309619346496 [label="resnetv17_stage1_conv5_fwd
+(Conv)
+GPU 0"]
+	2309619346544 [label="resnetv17_stage1_batchnorm5_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619347216 [label="resnetv17_stage1_relu3_fwd
+(Relu)
+GPU 0"]
+	2309619346304 [label="resnetv17_stage1_conv6_fwd
+(Conv)
+GPU 0"]
+	2309619347120 [label="resnetv17_stage1_batchnorm6_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619346880 [label="resnetv17_stage1__plus1
+(Add)
+GPU 0"]
+	2309619346928 [label="resnetv17_stage1_activation1
+(Relu)
+GPU 0"]
+	2309619347360 [label="resnetv17_stage1_conv7_fwd
+(Conv)
+GPU 0"]
+	2309619347408 [label="resnetv17_stage1_batchnorm7_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619347072 [label="resnetv17_stage1_relu4_fwd
+(Relu)
+GPU 0"]
+	2309619346592 [label="resnetv17_stage1_conv8_fwd
+(Conv)
+GPU 0"]
+	2309619346832 [label="resnetv17_stage1_batchnorm8_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619397536 [label="resnetv17_stage1_relu5_fwd
+(Relu)
+GPU 0"]
+	2309619397584 [label="resnetv17_stage1_conv9_fwd
+(Conv)
+GPU 0"]
+	2309619397920 [label="resnetv17_stage1_batchnorm9_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619397968 [label="resnetv17_stage1__plus2
+(Add)
+GPU 0"]
+	2309619397872 [label="resnetv17_stage1_activation2
+(Relu)
+GPU 0"]
+	2309619398016 [label="resnetv17_stage2_conv0_fwd
+(Conv)
+GPU 0"]
+	2309619398064 [label="resnetv17_stage2_batchnorm0_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619398112 [label="resnetv17_stage2_relu0_fwd
+(Relu)
+GPU 0"]
+	2309619397392 [label="resnetv17_stage2_conv1_fwd
+(Conv)
+GPU 0"]
+	2309619397440 [label="resnetv17_stage2_batchnorm1_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619397344 [label="resnetv17_stage2_relu1_fwd
+(Relu)
+GPU 0"]
+	2309619397296 [label="resnetv17_stage2_conv2_fwd
+(Conv)
+GPU 0"]
+	2309619397056 [label="resnetv17_stage2_batchnorm2_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619397152 [label="resnetv17_stage2_conv3_fwd
+(Conv)
+GPU 0"]
+	2309619397200 [label="resnetv17_stage2_batchnorm3_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619397008 [label="resnetv17_stage2__plus0
+(Add)
+GPU 0"]
+	2309619398160 [label="resnetv17_stage2_activation0
+(Relu)
+GPU 0"]
+	2309619398208 [label="resnetv17_stage2_conv4_fwd
+(Conv)
+GPU 0"]
+	2309619398256 [label="resnetv17_stage2_batchnorm4_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619398304 [label="resnetv17_stage2_relu2_fwd
+(Relu)
+GPU 0"]
+	2309619398352 [label="resnetv17_stage2_conv5_fwd
+(Conv)
+GPU 0"]
+	2309619398400 [label="resnetv17_stage2_batchnorm5_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619398448 [label="resnetv17_stage2_relu3_fwd
+(Relu)
+GPU 0"]
+	2309619398496 [label="resnetv17_stage2_conv6_fwd
+(Conv)
+GPU 0"]
+	2309619398544 [label="resnetv17_stage2_batchnorm6_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619398592 [label="resnetv17_stage2__plus1
+(Add)
+GPU 0"]
+	2309619398640 [label="resnetv17_stage2_activation1
+(Relu)
+GPU 0"]
+	2309619398688 [label="resnetv17_stage2_conv7_fwd
+(Conv)
+GPU 0"]
+	2309619398736 [label="resnetv17_stage2_batchnorm7_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619398784 [label="resnetv17_stage2_relu4_fwd
+(Relu)
+GPU 0"]
+	2309619398832 [label="resnetv17_stage2_conv8_fwd
+(Conv)
+GPU 0"]
+	2309619398880 [label="resnetv17_stage2_batchnorm8_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619398928 [label="resnetv17_stage2_relu5_fwd
+(Relu)
+GPU 0"]
+	2309619398976 [label="resnetv17_stage2_conv9_fwd
+(Conv)
+GPU 0"]
+	2309619399024 [label="resnetv17_stage2_batchnorm9_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619399072 [label="resnetv17_stage2__plus2
+(Add)
+GPU 0"]
+	2309619399120 [label="resnetv17_stage2_activation2
+(Relu)
+GPU 0"]
+	2309619399168 [label="resnetv17_stage2_conv10_fwd
+(Conv)
+GPU 0"]
+	2309619399216 [label="resnetv17_stage2_batchnorm10_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619399264 [label="resnetv17_stage2_relu6_fwd
+(Relu)
+GPU 0"]
+	2309619399312 [label="resnetv17_stage2_conv11_fwd
+(Conv)
+GPU 0"]
+	2309619399360 [label="resnetv17_stage2_batchnorm11_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619399408 [label="resnetv17_stage2_relu7_fwd
+(Relu)
+GPU 0"]
+	2309619399456 [label="resnetv17_stage2_conv12_fwd
+(Conv)
+GPU 0"]
+	2309619399504 [label="resnetv17_stage2_batchnorm12_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619399552 [label="resnetv17_stage2__plus3
+(Add)
+GPU 0"]
+	2309619399600 [label="resnetv17_stage2_activation3
+(Relu)
+GPU 0"]
+	2309619399648 [label="resnetv17_stage3_conv0_fwd
+(Conv)
+GPU 0"]
+	2309619399696 [label="resnetv17_stage3_batchnorm0_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619399744 [label="resnetv17_stage3_relu0_fwd
+(Relu)
+GPU 0"]
+	2309619399792 [label="resnetv17_stage3_conv1_fwd
+(Conv)
+GPU 0"]
+	2309619399840 [label="resnetv17_stage3_batchnorm1_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619399888 [label="resnetv17_stage3_relu1_fwd
+(Relu)
+GPU 0"]
+	2309619399936 [label="resnetv17_stage3_conv2_fwd
+(Conv)
+GPU 0"]
+	2309619399984 [label="resnetv17_stage3_batchnorm2_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619400032 [label="resnetv17_stage3_conv3_fwd
+(Conv)
+GPU 0"]
+	2309619400080 [label="resnetv17_stage3_batchnorm3_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619400128 [label="resnetv17_stage3__plus0
+(Add)
+GPU 0"]
+	2309619400176 [label="resnetv17_stage3_activation0
+(Relu)
+GPU 0"]
+	2309619280624 [label="resnetv17_stage3_conv4_fwd
+(Conv)
+GPU 0"]
+	2309619281392 [label="resnetv17_stage3_batchnorm4_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619279904 [label="resnetv17_stage3_relu2_fwd
+(Relu)
+GPU 0"]
+	2309619280336 [label="resnetv17_stage3_conv5_fwd
+(Conv)
+GPU 0"]
+	2309619280000 [label="resnetv17_stage3_batchnorm5_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619279088 [label="resnetv17_stage3_relu3_fwd
+(Relu)
+GPU 0"]
+	2309619279184 [label="resnetv17_stage3_conv6_fwd
+(Conv)
+GPU 0"]
+	2309619279328 [label="resnetv17_stage3_batchnorm6_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619279808 [label="resnetv17_stage3__plus1
+(Add)
+GPU 0"]
+	2309619280096 [label="resnetv17_stage3_activation1
+(Relu)
+GPU 0"]
+	2309619279616 [label="resnetv17_stage3_conv7_fwd
+(Conv)
+GPU 0"]
+	2309619280528 [label="resnetv17_stage3_batchnorm7_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619280288 [label="resnetv17_stage3_relu4_fwd
+(Relu)
+GPU 0"]
+	2309619280576 [label="resnetv17_stage3_conv8_fwd
+(Conv)
+GPU 0"]
+	2309619280240 [label="resnetv17_stage3_batchnorm8_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619280048 [label="resnetv17_stage3_relu5_fwd
+(Relu)
+GPU 0"]
+	2309619278752 [label="resnetv17_stage3_conv9_fwd
+(Conv)
+GPU 0"]
+	2309619279472 [label="resnetv17_stage3_batchnorm9_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619279760 [label="resnetv17_stage3__plus2
+(Add)
+GPU 0"]
+	2309619279376 [label="resnetv17_stage3_activation2
+(Relu)
+GPU 0"]
+	2309619279568 [label="resnetv17_stage3_conv10_fwd
+(Conv)
+GPU 0"]
+	2309619279280 [label="resnetv17_stage3_batchnorm10_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619279520 [label="resnetv17_stage3_relu6_fwd
+(Relu)
+GPU 0"]
+	2309619279664 [label="resnetv17_stage3_conv11_fwd
+(Conv)
+GPU 0"]
+	2309619279424 [label="resnetv17_stage3_batchnorm11_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619280192 [label="resnetv17_stage3_relu7_fwd
+(Relu)
+GPU 0"]
+	2309619279712 [label="resnetv17_stage3_conv12_fwd
+(Conv)
+GPU 0"]
+	2309619278800 [label="resnetv17_stage3_batchnorm12_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619279232 [label="resnetv17_stage3__plus3
+(Add)
+GPU 0"]
+	2309619400224 [label="resnetv17_stage3_activation3
+(Relu)
+GPU 0"]
+	2309619400272 [label="resnetv17_stage3_conv13_fwd
+(Conv)
+GPU 0"]
+	2309619400320 [label="resnetv17_stage3_batchnorm13_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619400368 [label="resnetv17_stage3_relu8_fwd
+(Relu)
+GPU 0"]
+	2309619400416 [label="resnetv17_stage3_conv14_fwd
+(Conv)
+GPU 0"]
+	2309619400464 [label="resnetv17_stage3_batchnorm14_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619400512 [label="resnetv17_stage3_relu9_fwd
+(Relu)
+GPU 0"]
+	2309619400560 [label="resnetv17_stage3_conv15_fwd
+(Conv)
+GPU 0"]
+	2309619400608 [label="resnetv17_stage3_batchnorm15_fwd
+(BatchNormalization)
+GPU 0"]
+	2309619400656 [label="resnetv17_stage3__plus4
+(Add)
+GPU 0"]
+	2309721165888 [label="resnetv17_stage3_activation4
+(Relu)
+GPU 0"]
+	2309721165936 [label="resnetv17_stage3_conv16_fwd
+(Conv)
+GPU 0"]
+	2309721165984 [label="resnetv17_stage3_batchnorm16_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166032 [label="resnetv17_stage3_relu10_fwd
+(Relu)
+GPU 0"]
+	2309721166080 [label="resnetv17_stage3_conv17_fwd
+(Conv)
+GPU 0"]
+	2309721166128 [label="resnetv17_stage3_batchnorm17_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166176 [label="resnetv17_stage3_relu11_fwd
+(Relu)
+GPU 0"]
+	2309721166224 [label="resnetv17_stage3_conv18_fwd
+(Conv)
+GPU 0"]
+	2309721166272 [label="resnetv17_stage3_batchnorm18_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166320 [label="resnetv17_stage3__plus5
+(Add)
+GPU 0"]
+	2309721166368 [label="resnetv17_stage3_activation5
+(Relu)
+GPU 0"]
+	2309721166416 [label="resnetv17_stage4_conv0_fwd
+(Conv)
+GPU 0"]
+	2309721166464 [label="resnetv17_stage4_batchnorm0_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166512 [label="resnetv17_stage4_relu0_fwd
+(Relu)
+GPU 0"]
+	2309721166560 [label="resnetv17_stage4_conv1_fwd
+(Conv)
+GPU 0"]
+	2309721166608 [label="resnetv17_stage4_batchnorm1_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166656 [label="resnetv17_stage4_relu1_fwd
+(Relu)
+GPU 0"]
+	2309721166704 [label="resnetv17_stage4_conv2_fwd
+(Conv)
+GPU 0"]
+	2309721166752 [label="resnetv17_stage4_batchnorm2_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166800 [label="resnetv17_stage4_conv3_fwd
+(Conv)
+GPU 0"]
+	2309721166848 [label="resnetv17_stage4_batchnorm3_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721166896 [label="resnetv17_stage4__plus0
+(Add)
+GPU 0"]
+	2309721166944 [label="resnetv17_stage4_activation0
+(Relu)
+GPU 0"]
+	2309721166992 [label="resnetv17_stage4_conv4_fwd
+(Conv)
+GPU 0"]
+	2309721167040 [label="resnetv17_stage4_batchnorm4_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721167088 [label="resnetv17_stage4_relu2_fwd
+(Relu)
+GPU 0"]
+	2309721167136 [label="resnetv17_stage4_conv5_fwd
+(Conv)
+GPU 0"]
+	2309721167184 [label="resnetv17_stage4_batchnorm5_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721167232 [label="resnetv17_stage4_relu3_fwd
+(Relu)
+GPU 0"]
+	2309721167280 [label="resnetv17_stage4_conv6_fwd
+(Conv)
+GPU 0"]
+	2309721167328 [label="resnetv17_stage4_batchnorm6_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721167376 [label="resnetv17_stage4__plus1
+(Add)
+GPU 0"]
+	2309721167424 [label="resnetv17_stage4_activation1
+(Relu)
+GPU 0"]
+	2309721167472 [label="resnetv17_stage4_conv7_fwd
+(Conv)
+GPU 0"]
+	2309721167520 [label="resnetv17_stage4_batchnorm7_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721167568 [label="resnetv17_stage4_relu4_fwd
+(Relu)
+GPU 0"]
+	2309721167616 [label="resnetv17_stage4_conv8_fwd
+(Conv)
+GPU 0"]
+	2309721167664 [label="resnetv17_stage4_batchnorm8_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721167712 [label="resnetv17_stage4_relu5_fwd
+(Relu)
+GPU 0"]
+	2309721167760 [label="resnetv17_stage4_conv9_fwd
+(Conv)
+GPU 0"]
+	2309721167808 [label="resnetv17_stage4_batchnorm9_fwd
+(BatchNormalization)
+GPU 0"]
+	2309721167856 [label="resnetv17_stage4__plus2
+(Add)
+GPU 0"]
+	2309721167904 [label="resnetv17_stage4_activation2
+(Relu)
+GPU 0"]
+	2309721167952 [label="resnetv17_pool1_fwd
+(GlobalAveragePool)
+GPU 0"]
+	2309721168000 [label="flatten_473
+(Flatten)
+GPU 0"]
+	2309721168048 [label="resnetv17_dense0_fwd
+(Gemm)
+GPU 0"]
+	2309619343520 [label="AllReduceGrad
+(AllReduce)
+GPU 0"]
+	2309204524864 -> 2309619345632
+	2309619345632 -> 2309619345344
+	2309619345344 -> 2309619345392
+	2309619345392 -> 2309619345584
+	2309619345584 -> 2309619346208
+	2309619346208 -> 2309619345440
+	2309619345440 -> 2309619345728
+	2309619345728 -> 2309619345872
+	2309619345872 -> 2309619345920
+	2309619345920 -> 2309619346448
+	2309619346448 -> 2309619346016
+	2309619346016 -> 2309619345968
+	2309619345584 -> 2309619346160
+	2309619346160 -> 2309619345776
+	2309619345968 -> 2309619346256
+	2309619345776 -> 2309619346256
+	2309619346256 -> 2309619346064
+	2309619346064 -> 2309619346688
+	2309619346688 -> 2309619346736
+	2309619346736 -> 2309619346784
+	2309619346784 -> 2309619346496
+	2309619346496 -> 2309619346544
+	2309619346544 -> 2309619347216
+	2309619347216 -> 2309619346304
+	2309619346304 -> 2309619347120
+	2309619347120 -> 2309619346880
+	2309619346064 -> 2309619346880
+	2309619346880 -> 2309619346928
+	2309619346928 -> 2309619347360
+	2309619347360 -> 2309619347408
+	2309619347408 -> 2309619347072
+	2309619347072 -> 2309619346592
+	2309619346592 -> 2309619346832
+	2309619346832 -> 2309619397536
+	2309619397536 -> 2309619397584
+	2309619397584 -> 2309619397920
+	2309619397920 -> 2309619397968
+	2309619346928 -> 2309619397968
+	2309619397968 -> 2309619397872
+	2309619397872 -> 2309619398016
+	2309619398016 -> 2309619398064
+	2309619398064 -> 2309619398112
+	2309619398112 -> 2309619397392
+	2309619397392 -> 2309619397440
+	2309619397440 -> 2309619397344
+	2309619397344 -> 2309619397296
+	2309619397296 -> 2309619397056
+	2309619397872 -> 2309619397152
+	2309619397152 -> 2309619397200
+	2309619397056 -> 2309619397008
+	2309619397200 -> 2309619397008
+	2309619397008 -> 2309619398160
+	2309619398160 -> 2309619398208
+	2309619398208 -> 2309619398256
+	2309619398256 -> 2309619398304
+	2309619398304 -> 2309619398352
+	2309619398352 -> 2309619398400
+	2309619398400 -> 2309619398448
+	2309619398448 -> 2309619398496
+	2309619398496 -> 2309619398544
+	2309619398544 -> 2309619398592
+	2309619398160 -> 2309619398592
+	2309619398592 -> 2309619398640
+	2309619398640 -> 2309619398688
+	2309619398688 -> 2309619398736
+	2309619398736 -> 2309619398784
+	2309619398784 -> 2309619398832
+	2309619398832 -> 2309619398880
+	2309619398880 -> 2309619398928
+	2309619398928 -> 2309619398976
+	2309619398976 -> 2309619399024
+	2309619399024 -> 2309619399072
+	2309619398640 -> 2309619399072
+	2309619399072 -> 2309619399120
+	2309619399120 -> 2309619399168
+	2309619399168 -> 2309619399216
+	2309619399216 -> 2309619399264
+	2309619399264 -> 2309619399312
+	2309619399312 -> 2309619399360
+	2309619399360 -> 2309619399408
+	2309619399408 -> 2309619399456
+	2309619399456 -> 2309619399504
+	2309619399504 -> 2309619399552
+	2309619399120 -> 2309619399552
+	2309619399552 -> 2309619399600
+	2309619399600 -> 2309619399648
+	2309619399648 -> 2309619399696
+	2309619399696 -> 2309619399744
+	2309619399744 -> 2309619399792
+	2309619399792 -> 2309619399840
+	2309619399840 -> 2309619399888
+	2309619399888 -> 2309619399936
+	2309619399936 -> 2309619399984
+	2309619399600 -> 2309619400032
+	2309619400032 -> 2309619400080
+	2309619399984 -> 2309619400128
+	2309619400080 -> 2309619400128
+	2309619400128 -> 2309619400176
+	2309619400176 -> 2309619280624
+	2309619280624 -> 2309619281392
+	2309619281392 -> 2309619279904
+	2309619279904 -> 2309619280336
+	2309619280336 -> 2309619280000
+	2309619280000 -> 2309619279088
+	2309619279088 -> 2309619279184
+	2309619279184 -> 2309619279328
+	2309619279328 -> 2309619279808
+	2309619400176 -> 2309619279808
+	2309619279808 -> 2309619280096
+	2309619280096 -> 2309619279616
+	2309619279616 -> 2309619280528
+	2309619280528 -> 2309619280288
+	2309619280288 -> 2309619280576
+	2309619280576 -> 2309619280240
+	2309619280240 -> 2309619280048
+	2309619280048 -> 2309619278752
+	2309619278752 -> 2309619279472
+	2309619279472 -> 2309619279760
+	2309619280096 -> 2309619279760
+	2309619279760 -> 2309619279376
+	2309619279376 -> 2309619279568
+	2309619279568 -> 2309619279280
+	2309619279280 -> 2309619279520
+	2309619279520 -> 2309619279664
+	2309619279664 -> 2309619279424
+	2309619279424 -> 2309619280192
+	2309619280192 -> 2309619279712
+	2309619279712 -> 2309619278800
+	2309619278800 -> 2309619279232
+	2309619279376 -> 2309619279232
+	2309619279232 -> 2309619400224
+	2309619400224 -> 2309619400272
+	2309619400272 -> 2309619400320
+	2309619400320 -> 2309619400368
+	2309619400368 -> 2309619400416
+	2309619400416 -> 2309619400464
+	2309619400464 -> 2309619400512
+	2309619400512 -> 2309619400560
+	2309619400560 -> 2309619400608
+	2309619400608 -> 2309619400656
+	2309619400224 -> 2309619400656
+	2309619400656 -> 2309721165888
+	2309721165888 -> 2309721165936
+	2309721165936 -> 2309721165984
+	2309721165984 -> 2309721166032
+	2309721166032 -> 2309721166080
+	2309721166080 -> 2309721166128
+	2309721166128 -> 2309721166176
+	2309721166176 -> 2309721166224
+	2309721166224 -> 2309721166272
+	2309721166272 -> 2309721166320
+	2309721165888 -> 2309721166320
+	2309721166320 -> 2309721166368
+	2309721166368 -> 2309721166416
+	2309721166416 -> 2309721166464
+	2309721166464 -> 2309721166512
+	2309721166512 -> 2309721166560
+	2309721166560 -> 2309721166608
+	2309721166608 -> 2309721166656
+	2309721166656 -> 2309721166704
+	2309721166704 -> 2309721166752
+	2309721166368 -> 2309721166800
+	2309721166800 -> 2309721166848
+	2309721166752 -> 2309721166896
+	2309721166848 -> 2309721166896
+	2309721166896 -> 2309721166944
+	2309721166944 -> 2309721166992
+	2309721166992 -> 2309721167040
+	2309721167040 -> 2309721167088
+	2309721167088 -> 2309721167136
+	2309721167136 -> 2309721167184
+	2309721167184 -> 2309721167232
+	2309721167232 -> 2309721167280
+	2309721167280 -> 2309721167328
+	2309721167328 -> 2309721167376
+	2309721166944 -> 2309721167376
+	2309721167376 -> 2309721167424
+	2309721167424 -> 2309721167472
+	2309721167472 -> 2309721167520
+	2309721167520 -> 2309721167568
+	2309721167568 -> 2309721167616
+	2309721167616 -> 2309721167664
+	2309721167664 -> 2309721167712
+	2309721167712 -> 2309721167760
+	2309721167760 -> 2309721167808
+	2309721167808 -> 2309721167856
+	2309721167424 -> 2309721167856
+	2309721167856 -> 2309721167904
+	2309721167904 -> 2309721167952
+	2309721167952 -> 2309721168000
+	2309721168000 -> 2309721168048
+	2309721168048 -> 2309619343520
+	2309721205248 -> 2309619343520
+	2309721254736 -> 2309619343520
+}
