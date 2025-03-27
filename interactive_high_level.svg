@@ -8,12 +8,12 @@
  viewBox="0.00 0.00 350.25 203.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 199)">
 <polygon fill="white" stroke="none" points="-4,4 -4,-199 346.25,-199 346.25,4 -4,4"/>
-<!-- scatter -->
+<!-- 1720740986832 -->
 <g id="node1" class="node">
-<title>scatter</title>
+<title>1720740986832</title>
 <polygon fill="lightblue" stroke="black" points="212.12,-195 130.12,-195 130.12,-154 212.12,-154 212.12,-195"/>
 <text text-anchor="middle" x="171.12" y="-177.7" font-family="Times New Roman,serif" font-size="14.00">ScatterInput</text>
-<text text-anchor="middle" x="171.12" y="-161.2" font-family="Times New Roman,serif" font-size="14.00">(Collective)</text>
+<text text-anchor="middle" x="171.12" y="-161.2" font-family="Times New Roman,serif" font-size="14.00">(Scatter)</text>
 </g>
 <!-- gpu_0 -->
 <g id="node3" class="node">
@@ -28,9 +28,9 @@
 </a>
 </g>
 </g>
-<!-- scatter&#45;&gt;gpu_0 -->
+<!-- 1720740986832&#45;&gt;gpu_0 -->
 <g id="edge1" class="edge">
-<title>scatter&#45;&gt;gpu_0</title>
+<title>1720740986832&#45;&gt;gpu_0</title>
 <path fill="none" stroke="black" d="M139.28,-153.6C125.04,-144.7 108.07,-134.09 92.83,-124.57"/>
 <polygon fill="black" stroke="black" points="94.74,-121.63 84.4,-119.3 91.03,-127.56 94.74,-121.63"/>
 </g>
@@ -47,9 +47,9 @@
 </a>
 </g>
 </g>
-<!-- scatter&#45;&gt;gpu_1 -->
+<!-- 1720740986832&#45;&gt;gpu_1 -->
 <g id="edge3" class="edge">
-<title>scatter&#45;&gt;gpu_1</title>
+<title>1720740986832&#45;&gt;gpu_1</title>
 <path fill="none" stroke="black" d="M171.12,-153.79C171.12,-146.45 171.12,-137.91 171.12,-129.78"/>
 <polygon fill="black" stroke="black" points="174.63,-129.85 171.13,-119.85 167.63,-129.85 174.63,-129.85"/>
 </g>
@@ -66,34 +66,34 @@
 </a>
 </g>
 </g>
-<!-- scatter&#45;&gt;gpu_2 -->
+<!-- 1720740986832&#45;&gt;gpu_2 -->
 <g id="edge5" class="edge">
-<title>scatter&#45;&gt;gpu_2</title>
+<title>1720740986832&#45;&gt;gpu_2</title>
 <path fill="none" stroke="black" d="M202.97,-153.6C217.21,-144.7 234.18,-134.09 249.42,-124.57"/>
 <polygon fill="black" stroke="black" points="251.22,-127.56 257.85,-119.3 247.51,-121.63 251.22,-127.56"/>
 </g>
-<!-- allreduce -->
+<!-- 1721155744096 -->
 <g id="node2" class="node">
-<title>allreduce</title>
+<title>1721155744096</title>
 <polygon fill="lightblue" stroke="black" points="221.5,-41 120.75,-41 120.75,0 221.5,0 221.5,-41"/>
 <text text-anchor="middle" x="171.12" y="-23.7" font-family="Times New Roman,serif" font-size="14.00">AllReduceGrad</text>
-<text text-anchor="middle" x="171.12" y="-7.2" font-family="Times New Roman,serif" font-size="14.00">(Collective)</text>
+<text text-anchor="middle" x="171.12" y="-7.2" font-family="Times New Roman,serif" font-size="14.00">(AllReduce)</text>
 </g>
-<!-- gpu_0&#45;&gt;allreduce -->
+<!-- gpu_0&#45;&gt;1721155744096 -->
 <g id="edge2" class="edge">
-<title>gpu_0&#45;&gt;allreduce</title>
+<title>gpu_0&#45;&gt;1721155744096</title>
 <path fill="none" stroke="black" d="M82.97,-76.6C97.21,-67.7 114.18,-57.09 129.42,-47.57"/>
 <polygon fill="black" stroke="black" points="131.22,-50.56 137.85,-42.3 127.51,-44.63 131.22,-50.56"/>
 </g>
-<!-- gpu_1&#45;&gt;allreduce -->
+<!-- gpu_1&#45;&gt;1721155744096 -->
 <g id="edge4" class="edge">
-<title>gpu_1&#45;&gt;allreduce</title>
+<title>gpu_1&#45;&gt;1721155744096</title>
 <path fill="none" stroke="black" d="M171.12,-76.79C171.12,-69.45 171.12,-60.91 171.12,-52.78"/>
 <polygon fill="black" stroke="black" points="174.63,-52.85 171.13,-42.85 167.63,-52.85 174.63,-52.85"/>
 </g>
-<!-- gpu_2&#45;&gt;allreduce -->
+<!-- gpu_2&#45;&gt;1721155744096 -->
 <g id="edge6" class="edge">
-<title>gpu_2&#45;&gt;allreduce</title>
+<title>gpu_2&#45;&gt;1721155744096</title>
 <path fill="none" stroke="black" d="M259.28,-76.6C245.04,-67.7 228.07,-57.09 212.83,-47.57"/>
 <polygon fill="black" stroke="black" points="214.74,-44.63 204.4,-42.3 211.03,-50.56 214.74,-44.63"/>
 </g>

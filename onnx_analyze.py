@@ -2,6 +2,10 @@ import onnx
 from class_Node import Node
 from graphviz import Digraph
 import webbrowser
+from graphviz import Digraph
+import webbrowser
+from collections import defaultdict
+import data_parllel
 
 def load_model(model_path):
     """Loads an ONNX model, performs shape inference, and prints input/output shapes for each layer."""
@@ -108,35 +112,49 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
     print(f"Clustered Graph saved to: {out_path}")
     webbrowser.open_new_tab(out_path)
 
-def create_interactive_high_level_svg(d, output_file="interactive_high_level"):
+def create_interactive_high_level_svg(d, model_replicas, output_file="interactive_high_level"):
     """
     Creates an interactive high-level SVG graph:
     - One node per GPU, linking to detailed GPU graph (e.g., gpu_0_detail.svg)
     - Shared collective ops: ScatterInput and AllReduceGrad
     - Clickable GPU nodes open their detailed SVGs
     """
-
     dot = Digraph(comment="High-Level Data Parallel Graph", format='svg')
 
-    # Step 1: Add shared collective nodes
+    # Step 1: Flatten all nodes
+    all_nodes = data_parllel.flatten_and_dedup(model_replicas)
 
+    # Step 2: Separate collective ops and GPU-local ops
+    gpu_groups = defaultdict(list)
+    collectives = []
+    for node in all_nodes:
+            if node.collective:
+                collectives.append(node)
+            else:
+                gpu_groups[node.gpu_num].append(node)
 
-    dot.node("scatter", label="ScatterInput\n(Collective)", shape="box", style="filled", fillcolor="lightblue")
-    dot.node("allreduce", label="AllReduceGrad\n(Collective)", shape="box", style="filled", fillcolor="lightblue")
+    # Step 3: Add collective nodes
+    for collective_node in collectives:
+        label = f"{collective_node.name}\n({collective_node.op_type})"
+        dot.node(str(id(collective_node)), label=label, shape="box", style="filled", fillcolor="lightblue")
 
-    # Step 2: Add one node per GPU with link to detail view
-    for i in range(d):
-        gpu_label = f"GPU {i}\n(ReplicaModel)"
-        gpu_node_name = f"gpu_{i}"
-        detail_href = f"gpu_{i}_detail.svg"
+    # Step 4: Add abstract GPU nodes and connect to collectives
+    for gpu, group_nodes in gpu_groups.items():
+        gpu_node_name = f"gpu_{gpu}"
+        label = f"GPU {gpu}\n(ReplicaModel)"
+        href = f"gpu_{gpu}_detail.svg"
 
-        dot.node(gpu_node_name, label=gpu_label, shape="box3d", style="filled", fillcolor="lightgray", href=detail_href)
+        dot.node(gpu_node_name, label=label, shape="box3d", style="filled", fillcolor="lightgray", href=href)
 
-        # Connect collective ops
-        dot.edge("scatter", gpu_node_name)
-        dot.edge(gpu_node_name, "allreduce")
+        # For each collective, check if it's linked to or from this replica
+        for collective_node in collectives:
+            for node in group_nodes:
+                if collective_node in node.parents:
+                    dot.edge(str(id(collective_node)), gpu_node_name)
+                if node in collective_node.parents:
+                    dot.edge(gpu_node_name, str(id(collective_node)))
 
-    # Step 3: Render and open
+    # Step 5: Render
     out_path = dot.render(output_file, view=False)
     print(f"Interactive high-level SVG saved to: {out_path}")
     webbrowser.open_new_tab(out_path)

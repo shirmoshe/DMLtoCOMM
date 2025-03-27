@@ -21,16 +21,17 @@ def main():
     # data parallel
     d = 3
 
-    node_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d)
+    model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d)
 
  #   merge_node_list = data_parllel.flatten_and_dedup(node_replicas)
  #   onnx_analyze.create_svg_graph(merge_node_list)
 #  onnx_analyze.create_svg_graph_with_clusters(merge_node_list)
 
-    onnx_analyze.create_interactive_high_level_svg(d)
+    onnx_analyze.create_interactive_high_level_svg(d, model_replicas)
+
 
     # Then generate each detailed replica view:
-    for i, replica in enumerate(node_replicas):
+    for i, replica in enumerate(model_replicas):
         onnx_analyze.create_svg_graph(replica, output_file=f"gpu_{i}_detail")
 
 if __name__ == "__main__":
