@@ -1,0 +1,728 @@
+// ONNX Model Graph
+digraph {
+	ScatterInput [label="ScatterInput
+(Scatter)
+GPU 0"]
+	resnetv17_conv0_fwd [label="resnetv17_conv0_fwd
+(Conv)
+GPU 2"]
+	resnetv17_batchnorm0_fwd [label="resnetv17_batchnorm0_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_relu0_fwd [label="resnetv17_relu0_fwd
+(Relu)
+GPU 2"]
+	resnetv17_pool0_fwd [label="resnetv17_pool0_fwd
+(MaxPool)
+GPU 2"]
+	resnetv17_stage1_conv0_fwd [label="resnetv17_stage1_conv0_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm0_fwd [label="resnetv17_stage1_batchnorm0_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_relu0_fwd [label="resnetv17_stage1_relu0_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv1_fwd [label="resnetv17_stage1_conv1_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm1_fwd [label="resnetv17_stage1_batchnorm1_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_relu1_fwd [label="resnetv17_stage1_relu1_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv2_fwd [label="resnetv17_stage1_conv2_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm2_fwd [label="resnetv17_stage1_batchnorm2_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_conv3_fwd [label="resnetv17_stage1_conv3_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm3_fwd [label="resnetv17_stage1_batchnorm3_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1__plus0 [label="resnetv17_stage1__plus0
+(Add)
+GPU 2"]
+	resnetv17_stage1_activation0 [label="resnetv17_stage1_activation0
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv4_fwd [label="resnetv17_stage1_conv4_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm4_fwd [label="resnetv17_stage1_batchnorm4_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_relu2_fwd [label="resnetv17_stage1_relu2_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv5_fwd [label="resnetv17_stage1_conv5_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm5_fwd [label="resnetv17_stage1_batchnorm5_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_relu3_fwd [label="resnetv17_stage1_relu3_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv6_fwd [label="resnetv17_stage1_conv6_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm6_fwd [label="resnetv17_stage1_batchnorm6_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1__plus1 [label="resnetv17_stage1__plus1
+(Add)
+GPU 2"]
+	resnetv17_stage1_activation1 [label="resnetv17_stage1_activation1
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv7_fwd [label="resnetv17_stage1_conv7_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm7_fwd [label="resnetv17_stage1_batchnorm7_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_relu4_fwd [label="resnetv17_stage1_relu4_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv8_fwd [label="resnetv17_stage1_conv8_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm8_fwd [label="resnetv17_stage1_batchnorm8_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1_relu5_fwd [label="resnetv17_stage1_relu5_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage1_conv9_fwd [label="resnetv17_stage1_conv9_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage1_batchnorm9_fwd [label="resnetv17_stage1_batchnorm9_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage1__plus2 [label="resnetv17_stage1__plus2
+(Add)
+GPU 2"]
+	resnetv17_stage1_activation2 [label="resnetv17_stage1_activation2
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv0_fwd [label="resnetv17_stage2_conv0_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm0_fwd [label="resnetv17_stage2_batchnorm0_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu0_fwd [label="resnetv17_stage2_relu0_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv1_fwd [label="resnetv17_stage2_conv1_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm1_fwd [label="resnetv17_stage2_batchnorm1_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu1_fwd [label="resnetv17_stage2_relu1_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv2_fwd [label="resnetv17_stage2_conv2_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm2_fwd [label="resnetv17_stage2_batchnorm2_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_conv3_fwd [label="resnetv17_stage2_conv3_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm3_fwd [label="resnetv17_stage2_batchnorm3_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2__plus0 [label="resnetv17_stage2__plus0
+(Add)
+GPU 2"]
+	resnetv17_stage2_activation0 [label="resnetv17_stage2_activation0
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv4_fwd [label="resnetv17_stage2_conv4_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm4_fwd [label="resnetv17_stage2_batchnorm4_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu2_fwd [label="resnetv17_stage2_relu2_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv5_fwd [label="resnetv17_stage2_conv5_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm5_fwd [label="resnetv17_stage2_batchnorm5_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu3_fwd [label="resnetv17_stage2_relu3_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv6_fwd [label="resnetv17_stage2_conv6_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm6_fwd [label="resnetv17_stage2_batchnorm6_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2__plus1 [label="resnetv17_stage2__plus1
+(Add)
+GPU 2"]
+	resnetv17_stage2_activation1 [label="resnetv17_stage2_activation1
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv7_fwd [label="resnetv17_stage2_conv7_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm7_fwd [label="resnetv17_stage2_batchnorm7_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu4_fwd [label="resnetv17_stage2_relu4_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv8_fwd [label="resnetv17_stage2_conv8_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm8_fwd [label="resnetv17_stage2_batchnorm8_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu5_fwd [label="resnetv17_stage2_relu5_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv9_fwd [label="resnetv17_stage2_conv9_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm9_fwd [label="resnetv17_stage2_batchnorm9_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2__plus2 [label="resnetv17_stage2__plus2
+(Add)
+GPU 2"]
+	resnetv17_stage2_activation2 [label="resnetv17_stage2_activation2
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv10_fwd [label="resnetv17_stage2_conv10_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm10_fwd [label="resnetv17_stage2_batchnorm10_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu6_fwd [label="resnetv17_stage2_relu6_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv11_fwd [label="resnetv17_stage2_conv11_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm11_fwd [label="resnetv17_stage2_batchnorm11_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2_relu7_fwd [label="resnetv17_stage2_relu7_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage2_conv12_fwd [label="resnetv17_stage2_conv12_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage2_batchnorm12_fwd [label="resnetv17_stage2_batchnorm12_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage2__plus3 [label="resnetv17_stage2__plus3
+(Add)
+GPU 2"]
+	resnetv17_stage2_activation3 [label="resnetv17_stage2_activation3
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv0_fwd [label="resnetv17_stage3_conv0_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm0_fwd [label="resnetv17_stage3_batchnorm0_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu0_fwd [label="resnetv17_stage3_relu0_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv1_fwd [label="resnetv17_stage3_conv1_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm1_fwd [label="resnetv17_stage3_batchnorm1_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu1_fwd [label="resnetv17_stage3_relu1_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv2_fwd [label="resnetv17_stage3_conv2_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm2_fwd [label="resnetv17_stage3_batchnorm2_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_conv3_fwd [label="resnetv17_stage3_conv3_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm3_fwd [label="resnetv17_stage3_batchnorm3_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3__plus0 [label="resnetv17_stage3__plus0
+(Add)
+GPU 2"]
+	resnetv17_stage3_activation0 [label="resnetv17_stage3_activation0
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv4_fwd [label="resnetv17_stage3_conv4_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm4_fwd [label="resnetv17_stage3_batchnorm4_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu2_fwd [label="resnetv17_stage3_relu2_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv5_fwd [label="resnetv17_stage3_conv5_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm5_fwd [label="resnetv17_stage3_batchnorm5_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu3_fwd [label="resnetv17_stage3_relu3_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv6_fwd [label="resnetv17_stage3_conv6_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm6_fwd [label="resnetv17_stage3_batchnorm6_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3__plus1 [label="resnetv17_stage3__plus1
+(Add)
+GPU 2"]
+	resnetv17_stage3_activation1 [label="resnetv17_stage3_activation1
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv7_fwd [label="resnetv17_stage3_conv7_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm7_fwd [label="resnetv17_stage3_batchnorm7_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu4_fwd [label="resnetv17_stage3_relu4_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv8_fwd [label="resnetv17_stage3_conv8_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm8_fwd [label="resnetv17_stage3_batchnorm8_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu5_fwd [label="resnetv17_stage3_relu5_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv9_fwd [label="resnetv17_stage3_conv9_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm9_fwd [label="resnetv17_stage3_batchnorm9_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3__plus2 [label="resnetv17_stage3__plus2
+(Add)
+GPU 2"]
+	resnetv17_stage3_activation2 [label="resnetv17_stage3_activation2
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv10_fwd [label="resnetv17_stage3_conv10_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm10_fwd [label="resnetv17_stage3_batchnorm10_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu6_fwd [label="resnetv17_stage3_relu6_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv11_fwd [label="resnetv17_stage3_conv11_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm11_fwd [label="resnetv17_stage3_batchnorm11_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu7_fwd [label="resnetv17_stage3_relu7_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv12_fwd [label="resnetv17_stage3_conv12_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm12_fwd [label="resnetv17_stage3_batchnorm12_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3__plus3 [label="resnetv17_stage3__plus3
+(Add)
+GPU 2"]
+	resnetv17_stage3_activation3 [label="resnetv17_stage3_activation3
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv13_fwd [label="resnetv17_stage3_conv13_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm13_fwd [label="resnetv17_stage3_batchnorm13_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu8_fwd [label="resnetv17_stage3_relu8_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv14_fwd [label="resnetv17_stage3_conv14_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm14_fwd [label="resnetv17_stage3_batchnorm14_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu9_fwd [label="resnetv17_stage3_relu9_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv15_fwd [label="resnetv17_stage3_conv15_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm15_fwd [label="resnetv17_stage3_batchnorm15_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3__plus4 [label="resnetv17_stage3__plus4
+(Add)
+GPU 2"]
+	resnetv17_stage3_activation4 [label="resnetv17_stage3_activation4
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv16_fwd [label="resnetv17_stage3_conv16_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm16_fwd [label="resnetv17_stage3_batchnorm16_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu10_fwd [label="resnetv17_stage3_relu10_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv17_fwd [label="resnetv17_stage3_conv17_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm17_fwd [label="resnetv17_stage3_batchnorm17_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3_relu11_fwd [label="resnetv17_stage3_relu11_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage3_conv18_fwd [label="resnetv17_stage3_conv18_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage3_batchnorm18_fwd [label="resnetv17_stage3_batchnorm18_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage3__plus5 [label="resnetv17_stage3__plus5
+(Add)
+GPU 2"]
+	resnetv17_stage3_activation5 [label="resnetv17_stage3_activation5
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv0_fwd [label="resnetv17_stage4_conv0_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm0_fwd [label="resnetv17_stage4_batchnorm0_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_relu0_fwd [label="resnetv17_stage4_relu0_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv1_fwd [label="resnetv17_stage4_conv1_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm1_fwd [label="resnetv17_stage4_batchnorm1_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_relu1_fwd [label="resnetv17_stage4_relu1_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv2_fwd [label="resnetv17_stage4_conv2_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm2_fwd [label="resnetv17_stage4_batchnorm2_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_conv3_fwd [label="resnetv17_stage4_conv3_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm3_fwd [label="resnetv17_stage4_batchnorm3_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4__plus0 [label="resnetv17_stage4__plus0
+(Add)
+GPU 2"]
+	resnetv17_stage4_activation0 [label="resnetv17_stage4_activation0
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv4_fwd [label="resnetv17_stage4_conv4_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm4_fwd [label="resnetv17_stage4_batchnorm4_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_relu2_fwd [label="resnetv17_stage4_relu2_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv5_fwd [label="resnetv17_stage4_conv5_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm5_fwd [label="resnetv17_stage4_batchnorm5_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_relu3_fwd [label="resnetv17_stage4_relu3_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv6_fwd [label="resnetv17_stage4_conv6_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm6_fwd [label="resnetv17_stage4_batchnorm6_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4__plus1 [label="resnetv17_stage4__plus1
+(Add)
+GPU 2"]
+	resnetv17_stage4_activation1 [label="resnetv17_stage4_activation1
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv7_fwd [label="resnetv17_stage4_conv7_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm7_fwd [label="resnetv17_stage4_batchnorm7_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_relu4_fwd [label="resnetv17_stage4_relu4_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv8_fwd [label="resnetv17_stage4_conv8_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm8_fwd [label="resnetv17_stage4_batchnorm8_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4_relu5_fwd [label="resnetv17_stage4_relu5_fwd
+(Relu)
+GPU 2"]
+	resnetv17_stage4_conv9_fwd [label="resnetv17_stage4_conv9_fwd
+(Conv)
+GPU 2"]
+	resnetv17_stage4_batchnorm9_fwd [label="resnetv17_stage4_batchnorm9_fwd
+(BatchNormalization)
+GPU 2"]
+	resnetv17_stage4__plus2 [label="resnetv17_stage4__plus2
+(Add)
+GPU 2"]
+	resnetv17_stage4_activation2 [label="resnetv17_stage4_activation2
+(Relu)
+GPU 2"]
+	resnetv17_pool1_fwd [label="resnetv17_pool1_fwd
+(GlobalAveragePool)
+GPU 2"]
+	flatten_473 [label="flatten_473
+(Flatten)
+GPU 2"]
+	resnetv17_dense0_fwd [label="resnetv17_dense0_fwd
+(Gemm)
+GPU 2"]
+	AllReduceGrad [label="AllReduceGrad
+(AllReduce)
+GPU 0"]
+	ScatterInput -> resnetv17_conv0_fwd
+	resnetv17_conv0_fwd -> resnetv17_batchnorm0_fwd
+	resnetv17_batchnorm0_fwd -> resnetv17_relu0_fwd
+	resnetv17_relu0_fwd -> resnetv17_pool0_fwd
+	resnetv17_pool0_fwd -> resnetv17_stage1_conv0_fwd
+	resnetv17_stage1_conv0_fwd -> resnetv17_stage1_batchnorm0_fwd
+	resnetv17_stage1_batchnorm0_fwd -> resnetv17_stage1_relu0_fwd
+	resnetv17_stage1_relu0_fwd -> resnetv17_stage1_conv1_fwd
+	resnetv17_stage1_conv1_fwd -> resnetv17_stage1_batchnorm1_fwd
+	resnetv17_stage1_batchnorm1_fwd -> resnetv17_stage1_relu1_fwd
+	resnetv17_stage1_relu1_fwd -> resnetv17_stage1_conv2_fwd
+	resnetv17_stage1_conv2_fwd -> resnetv17_stage1_batchnorm2_fwd
+	resnetv17_pool0_fwd -> resnetv17_stage1_conv3_fwd
+	resnetv17_stage1_conv3_fwd -> resnetv17_stage1_batchnorm3_fwd
+	resnetv17_stage1_batchnorm2_fwd -> resnetv17_stage1__plus0
+	resnetv17_stage1_batchnorm3_fwd -> resnetv17_stage1__plus0
+	resnetv17_stage1__plus0 -> resnetv17_stage1_activation0
+	resnetv17_stage1_activation0 -> resnetv17_stage1_conv4_fwd
+	resnetv17_stage1_conv4_fwd -> resnetv17_stage1_batchnorm4_fwd
+	resnetv17_stage1_batchnorm4_fwd -> resnetv17_stage1_relu2_fwd
+	resnetv17_stage1_relu2_fwd -> resnetv17_stage1_conv5_fwd
+	resnetv17_stage1_conv5_fwd -> resnetv17_stage1_batchnorm5_fwd
+	resnetv17_stage1_batchnorm5_fwd -> resnetv17_stage1_relu3_fwd
+	resnetv17_stage1_relu3_fwd -> resnetv17_stage1_conv6_fwd
+	resnetv17_stage1_conv6_fwd -> resnetv17_stage1_batchnorm6_fwd
+	resnetv17_stage1_batchnorm6_fwd -> resnetv17_stage1__plus1
+	resnetv17_stage1_activation0 -> resnetv17_stage1__plus1
+	resnetv17_stage1__plus1 -> resnetv17_stage1_activation1
+	resnetv17_stage1_activation1 -> resnetv17_stage1_conv7_fwd
+	resnetv17_stage1_conv7_fwd -> resnetv17_stage1_batchnorm7_fwd
+	resnetv17_stage1_batchnorm7_fwd -> resnetv17_stage1_relu4_fwd
+	resnetv17_stage1_relu4_fwd -> resnetv17_stage1_conv8_fwd
+	resnetv17_stage1_conv8_fwd -> resnetv17_stage1_batchnorm8_fwd
+	resnetv17_stage1_batchnorm8_fwd -> resnetv17_stage1_relu5_fwd
+	resnetv17_stage1_relu5_fwd -> resnetv17_stage1_conv9_fwd
+	resnetv17_stage1_conv9_fwd -> resnetv17_stage1_batchnorm9_fwd
+	resnetv17_stage1_batchnorm9_fwd -> resnetv17_stage1__plus2
+	resnetv17_stage1_activation1 -> resnetv17_stage1__plus2
+	resnetv17_stage1__plus2 -> resnetv17_stage1_activation2
+	resnetv17_stage1_activation2 -> resnetv17_stage2_conv0_fwd
+	resnetv17_stage2_conv0_fwd -> resnetv17_stage2_batchnorm0_fwd
+	resnetv17_stage2_batchnorm0_fwd -> resnetv17_stage2_relu0_fwd
+	resnetv17_stage2_relu0_fwd -> resnetv17_stage2_conv1_fwd
+	resnetv17_stage2_conv1_fwd -> resnetv17_stage2_batchnorm1_fwd
+	resnetv17_stage2_batchnorm1_fwd -> resnetv17_stage2_relu1_fwd
+	resnetv17_stage2_relu1_fwd -> resnetv17_stage2_conv2_fwd
+	resnetv17_stage2_conv2_fwd -> resnetv17_stage2_batchnorm2_fwd
+	resnetv17_stage1_activation2 -> resnetv17_stage2_conv3_fwd
+	resnetv17_stage2_conv3_fwd -> resnetv17_stage2_batchnorm3_fwd
+	resnetv17_stage2_batchnorm2_fwd -> resnetv17_stage2__plus0
+	resnetv17_stage2_batchnorm3_fwd -> resnetv17_stage2__plus0
+	resnetv17_stage2__plus0 -> resnetv17_stage2_activation0
+	resnetv17_stage2_activation0 -> resnetv17_stage2_conv4_fwd
+	resnetv17_stage2_conv4_fwd -> resnetv17_stage2_batchnorm4_fwd
+	resnetv17_stage2_batchnorm4_fwd -> resnetv17_stage2_relu2_fwd
+	resnetv17_stage2_relu2_fwd -> resnetv17_stage2_conv5_fwd
+	resnetv17_stage2_conv5_fwd -> resnetv17_stage2_batchnorm5_fwd
+	resnetv17_stage2_batchnorm5_fwd -> resnetv17_stage2_relu3_fwd
+	resnetv17_stage2_relu3_fwd -> resnetv17_stage2_conv6_fwd
+	resnetv17_stage2_conv6_fwd -> resnetv17_stage2_batchnorm6_fwd
+	resnetv17_stage2_batchnorm6_fwd -> resnetv17_stage2__plus1
+	resnetv17_stage2_activation0 -> resnetv17_stage2__plus1
+	resnetv17_stage2__plus1 -> resnetv17_stage2_activation1
+	resnetv17_stage2_activation1 -> resnetv17_stage2_conv7_fwd
+	resnetv17_stage2_conv7_fwd -> resnetv17_stage2_batchnorm7_fwd
+	resnetv17_stage2_batchnorm7_fwd -> resnetv17_stage2_relu4_fwd
+	resnetv17_stage2_relu4_fwd -> resnetv17_stage2_conv8_fwd
+	resnetv17_stage2_conv8_fwd -> resnetv17_stage2_batchnorm8_fwd
+	resnetv17_stage2_batchnorm8_fwd -> resnetv17_stage2_relu5_fwd
+	resnetv17_stage2_relu5_fwd -> resnetv17_stage2_conv9_fwd
+	resnetv17_stage2_conv9_fwd -> resnetv17_stage2_batchnorm9_fwd
+	resnetv17_stage2_batchnorm9_fwd -> resnetv17_stage2__plus2
+	resnetv17_stage2_activation1 -> resnetv17_stage2__plus2
+	resnetv17_stage2__plus2 -> resnetv17_stage2_activation2
+	resnetv17_stage2_activation2 -> resnetv17_stage2_conv10_fwd
+	resnetv17_stage2_conv10_fwd -> resnetv17_stage2_batchnorm10_fwd
+	resnetv17_stage2_batchnorm10_fwd -> resnetv17_stage2_relu6_fwd
+	resnetv17_stage2_relu6_fwd -> resnetv17_stage2_conv11_fwd
+	resnetv17_stage2_conv11_fwd -> resnetv17_stage2_batchnorm11_fwd
+	resnetv17_stage2_batchnorm11_fwd -> resnetv17_stage2_relu7_fwd
+	resnetv17_stage2_relu7_fwd -> resnetv17_stage2_conv12_fwd
+	resnetv17_stage2_conv12_fwd -> resnetv17_stage2_batchnorm12_fwd
+	resnetv17_stage2_batchnorm12_fwd -> resnetv17_stage2__plus3
+	resnetv17_stage2_activation2 -> resnetv17_stage2__plus3
+	resnetv17_stage2__plus3 -> resnetv17_stage2_activation3
+	resnetv17_stage2_activation3 -> resnetv17_stage3_conv0_fwd
+	resnetv17_stage3_conv0_fwd -> resnetv17_stage3_batchnorm0_fwd
+	resnetv17_stage3_batchnorm0_fwd -> resnetv17_stage3_relu0_fwd
+	resnetv17_stage3_relu0_fwd -> resnetv17_stage3_conv1_fwd
+	resnetv17_stage3_conv1_fwd -> resnetv17_stage3_batchnorm1_fwd
+	resnetv17_stage3_batchnorm1_fwd -> resnetv17_stage3_relu1_fwd
+	resnetv17_stage3_relu1_fwd -> resnetv17_stage3_conv2_fwd
+	resnetv17_stage3_conv2_fwd -> resnetv17_stage3_batchnorm2_fwd
+	resnetv17_stage2_activation3 -> resnetv17_stage3_conv3_fwd
+	resnetv17_stage3_conv3_fwd -> resnetv17_stage3_batchnorm3_fwd
+	resnetv17_stage3_batchnorm2_fwd -> resnetv17_stage3__plus0
+	resnetv17_stage3_batchnorm3_fwd -> resnetv17_stage3__plus0
+	resnetv17_stage3__plus0 -> resnetv17_stage3_activation0
+	resnetv17_stage3_activation0 -> resnetv17_stage3_conv4_fwd
+	resnetv17_stage3_conv4_fwd -> resnetv17_stage3_batchnorm4_fwd
+	resnetv17_stage3_batchnorm4_fwd -> resnetv17_stage3_relu2_fwd
+	resnetv17_stage3_relu2_fwd -> resnetv17_stage3_conv5_fwd
+	resnetv17_stage3_conv5_fwd -> resnetv17_stage3_batchnorm5_fwd
+	resnetv17_stage3_batchnorm5_fwd -> resnetv17_stage3_relu3_fwd
+	resnetv17_stage3_relu3_fwd -> resnetv17_stage3_conv6_fwd
+	resnetv17_stage3_conv6_fwd -> resnetv17_stage3_batchnorm6_fwd
+	resnetv17_stage3_batchnorm6_fwd -> resnetv17_stage3__plus1
+	resnetv17_stage3_activation0 -> resnetv17_stage3__plus1
+	resnetv17_stage3__plus1 -> resnetv17_stage3_activation1
+	resnetv17_stage3_activation1 -> resnetv17_stage3_conv7_fwd
+	resnetv17_stage3_conv7_fwd -> resnetv17_stage3_batchnorm7_fwd
+	resnetv17_stage3_batchnorm7_fwd -> resnetv17_stage3_relu4_fwd
+	resnetv17_stage3_relu4_fwd -> resnetv17_stage3_conv8_fwd
+	resnetv17_stage3_conv8_fwd -> resnetv17_stage3_batchnorm8_fwd
+	resnetv17_stage3_batchnorm8_fwd -> resnetv17_stage3_relu5_fwd
+	resnetv17_stage3_relu5_fwd -> resnetv17_stage3_conv9_fwd
+	resnetv17_stage3_conv9_fwd -> resnetv17_stage3_batchnorm9_fwd
+	resnetv17_stage3_batchnorm9_fwd -> resnetv17_stage3__plus2
+	resnetv17_stage3_activation1 -> resnetv17_stage3__plus2
+	resnetv17_stage3__plus2 -> resnetv17_stage3_activation2
+	resnetv17_stage3_activation2 -> resnetv17_stage3_conv10_fwd
+	resnetv17_stage3_conv10_fwd -> resnetv17_stage3_batchnorm10_fwd
+	resnetv17_stage3_batchnorm10_fwd -> resnetv17_stage3_relu6_fwd
+	resnetv17_stage3_relu6_fwd -> resnetv17_stage3_conv11_fwd
+	resnetv17_stage3_conv11_fwd -> resnetv17_stage3_batchnorm11_fwd
+	resnetv17_stage3_batchnorm11_fwd -> resnetv17_stage3_relu7_fwd
+	resnetv17_stage3_relu7_fwd -> resnetv17_stage3_conv12_fwd
+	resnetv17_stage3_conv12_fwd -> resnetv17_stage3_batchnorm12_fwd
+	resnetv17_stage3_batchnorm12_fwd -> resnetv17_stage3__plus3
+	resnetv17_stage3_activation2 -> resnetv17_stage3__plus3
+	resnetv17_stage3__plus3 -> resnetv17_stage3_activation3
+	resnetv17_stage3_activation3 -> resnetv17_stage3_conv13_fwd
+	resnetv17_stage3_conv13_fwd -> resnetv17_stage3_batchnorm13_fwd
+	resnetv17_stage3_batchnorm13_fwd -> resnetv17_stage3_relu8_fwd
+	resnetv17_stage3_relu8_fwd -> resnetv17_stage3_conv14_fwd
+	resnetv17_stage3_conv14_fwd -> resnetv17_stage3_batchnorm14_fwd
+	resnetv17_stage3_batchnorm14_fwd -> resnetv17_stage3_relu9_fwd
+	resnetv17_stage3_relu9_fwd -> resnetv17_stage3_conv15_fwd
+	resnetv17_stage3_conv15_fwd -> resnetv17_stage3_batchnorm15_fwd
+	resnetv17_stage3_batchnorm15_fwd -> resnetv17_stage3__plus4
+	resnetv17_stage3_activation3 -> resnetv17_stage3__plus4
+	resnetv17_stage3__plus4 -> resnetv17_stage3_activation4
+	resnetv17_stage3_activation4 -> resnetv17_stage3_conv16_fwd
+	resnetv17_stage3_conv16_fwd -> resnetv17_stage3_batchnorm16_fwd
+	resnetv17_stage3_batchnorm16_fwd -> resnetv17_stage3_relu10_fwd
+	resnetv17_stage3_relu10_fwd -> resnetv17_stage3_conv17_fwd
+	resnetv17_stage3_conv17_fwd -> resnetv17_stage3_batchnorm17_fwd
+	resnetv17_stage3_batchnorm17_fwd -> resnetv17_stage3_relu11_fwd
+	resnetv17_stage3_relu11_fwd -> resnetv17_stage3_conv18_fwd
+	resnetv17_stage3_conv18_fwd -> resnetv17_stage3_batchnorm18_fwd
+	resnetv17_stage3_batchnorm18_fwd -> resnetv17_stage3__plus5
+	resnetv17_stage3_activation4 -> resnetv17_stage3__plus5
+	resnetv17_stage3__plus5 -> resnetv17_stage3_activation5
+	resnetv17_stage3_activation5 -> resnetv17_stage4_conv0_fwd
+	resnetv17_stage4_conv0_fwd -> resnetv17_stage4_batchnorm0_fwd
+	resnetv17_stage4_batchnorm0_fwd -> resnetv17_stage4_relu0_fwd
+	resnetv17_stage4_relu0_fwd -> resnetv17_stage4_conv1_fwd
+	resnetv17_stage4_conv1_fwd -> resnetv17_stage4_batchnorm1_fwd
+	resnetv17_stage4_batchnorm1_fwd -> resnetv17_stage4_relu1_fwd
+	resnetv17_stage4_relu1_fwd -> resnetv17_stage4_conv2_fwd
+	resnetv17_stage4_conv2_fwd -> resnetv17_stage4_batchnorm2_fwd
+	resnetv17_stage3_activation5 -> resnetv17_stage4_conv3_fwd
+	resnetv17_stage4_conv3_fwd -> resnetv17_stage4_batchnorm3_fwd
+	resnetv17_stage4_batchnorm2_fwd -> resnetv17_stage4__plus0
+	resnetv17_stage4_batchnorm3_fwd -> resnetv17_stage4__plus0
+	resnetv17_stage4__plus0 -> resnetv17_stage4_activation0
+	resnetv17_stage4_activation0 -> resnetv17_stage4_conv4_fwd
+	resnetv17_stage4_conv4_fwd -> resnetv17_stage4_batchnorm4_fwd
+	resnetv17_stage4_batchnorm4_fwd -> resnetv17_stage4_relu2_fwd
+	resnetv17_stage4_relu2_fwd -> resnetv17_stage4_conv5_fwd
+	resnetv17_stage4_conv5_fwd -> resnetv17_stage4_batchnorm5_fwd
+	resnetv17_stage4_batchnorm5_fwd -> resnetv17_stage4_relu3_fwd
+	resnetv17_stage4_relu3_fwd -> resnetv17_stage4_conv6_fwd
+	resnetv17_stage4_conv6_fwd -> resnetv17_stage4_batchnorm6_fwd
+	resnetv17_stage4_batchnorm6_fwd -> resnetv17_stage4__plus1
+	resnetv17_stage4_activation0 -> resnetv17_stage4__plus1
+	resnetv17_stage4__plus1 -> resnetv17_stage4_activation1
+	resnetv17_stage4_activation1 -> resnetv17_stage4_conv7_fwd
+	resnetv17_stage4_conv7_fwd -> resnetv17_stage4_batchnorm7_fwd
+	resnetv17_stage4_batchnorm7_fwd -> resnetv17_stage4_relu4_fwd
+	resnetv17_stage4_relu4_fwd -> resnetv17_stage4_conv8_fwd
+	resnetv17_stage4_conv8_fwd -> resnetv17_stage4_batchnorm8_fwd
+	resnetv17_stage4_batchnorm8_fwd -> resnetv17_stage4_relu5_fwd
+	resnetv17_stage4_relu5_fwd -> resnetv17_stage4_conv9_fwd
+	resnetv17_stage4_conv9_fwd -> resnetv17_stage4_batchnorm9_fwd
+	resnetv17_stage4_batchnorm9_fwd -> resnetv17_stage4__plus2
+	resnetv17_stage4_activation1 -> resnetv17_stage4__plus2
+	resnetv17_stage4__plus2 -> resnetv17_stage4_activation2
+	resnetv17_stage4_activation2 -> resnetv17_pool1_fwd
+	resnetv17_pool1_fwd -> flatten_473
+	flatten_473 -> resnetv17_dense0_fwd
+	resnetv17_dense0_fwd -> AllReduceGrad
+	resnetv17_dense0_fwd -> AllReduceGrad
+	resnetv17_dense0_fwd -> AllReduceGrad
+}

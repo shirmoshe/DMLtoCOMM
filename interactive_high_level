@@ -1,0 +1,19 @@
+// High-Level Data Parallel Graph
+digraph {
+	scatter [label="ScatterInput
+(Collective)" fillcolor=lightblue shape=box style=filled]
+	allreduce [label="AllReduceGrad
+(Collective)" fillcolor=lightblue shape=box style=filled]
+	gpu_0 [label="GPU 0
+(ReplicaModel)" fillcolor=lightgray href="gpu_0_detail.svg" shape=box3d style=filled]
+	scatter -> gpu_0
+	gpu_0 -> allreduce
+	gpu_1 [label="GPU 1
+(ReplicaModel)" fillcolor=lightgray href="gpu_1_detail.svg" shape=box3d style=filled]
+	scatter -> gpu_1
+	gpu_1 -> allreduce
+	gpu_2 [label="GPU 2
+(ReplicaModel)" fillcolor=lightgray href="gpu_2_detail.svg" shape=box3d style=filled]
+	scatter -> gpu_2
+	gpu_2 -> allreduce
+}

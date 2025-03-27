@@ -1,15 +1,15 @@
 import onnx
 
-
 # Custom Node class
 class Node:
+    def __init__(self, index, name, op_type):
+        self.index = index               # Numeric index (for internal reference)
+        self.name = name                 # Original ONNX node name
+        self.op_type = op_type           # Operation type (e.g., MatMul, Add)
+        self.parents = []                # List of parent nodes
+        self.gpu_naum = 0
+        self.collective = False           # define operator as collective
 
-    def __init__(self, name, op_type):
-        self.name = name            # node name (index)
-        self.op_type = op_type      # operation type (e.g., MatMul, Add)
-        self.parents = []           # list of parent nodes
-   #     self.children = []          # list of child nodes
-
-    def __repr__(self):    # print the object
+    def __repr__(self):
         return f"{self.name} ({self.op_type})"
 

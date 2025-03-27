@@ -1,50 +1,40 @@
 import onnx
-import netron
 import onnx_analyze
 import class_Node
 import torch
-from onnx2pytorch import ConvertModel
+# from onnx2pytorch import ConvertModel
+import data_parllel
 
-model_path = "C:/Users/shirm/PycharmProjects/Project/imagenet/resnet50-v1-7.onnx"  # Replace with model path
+def main():
+    # Load the ONNX model
+    model_path = "C:/Users/shirm/PycharmProjects/Project/imagenet/resnet50-v1-7.onnx"
+    #model_path = "C:/Users/nadav/PycharmProjects/DMLtoCOMM/resnet50-v1-7.onnx"  # Replace with model path
 
-# Load the ONNX model
-onnx_model = onnx_analyze.load_model(model_path)
+    onnx_model = onnx_analyze.load_model(model_path)
 
-# Visualize the ONNX model
-#onnx_analyze.launch_netron(model_path)
+    # Create Node objects and build the hierarchy
+    nodes_list = onnx_analyze.create_nodes(onnx_model)
 
-# Create parent-child relationships
-nodes_list = onnx_analyze.create_nodes(onnx_model)
+    # Generate an SVG graph using Graphviz
+   # onnx_analyze.create_svg_graph(nodes_list, "my_onnx_graph")
 
-# Print parent-child relationships
-onnx_analyze.print_nodes(nodes_list)
+    # data parallel
+    d = 3
 
-# Create and print set of operators
-ops = onnx_analyze.operators_list(onnx_model)
+    node_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d)
 
+ #   merge_node_list = data_parllel.flatten_and_dedup(node_replicas)
+ #   onnx_analyze.create_svg_graph(merge_node_list)
+#  onnx_analyze.create_svg_graph_with_clusters(merge_node_list)
 
+    onnx_analyze.create_interactive_high_level_svg(d)
 
-# Plot the directed graph with our nodes
-# onnx_analyze.plot_onnx_graph(nodes_list)
+    # Then generate each detailed replica view:
+    for i, replica in enumerate(node_replicas):
+        onnx_analyze.create_svg_graph(replica, output_file=f"gpu_{i}_detail")
 
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()
 
 
 
-
-# Convert ONNX to PyTorch
-# pytorch_model = ConvertModel(onnx_model)
-
-# Show the converted PyTorch model
-# print("Converted PyTorch Model:")
-# print(pytorch_model)
