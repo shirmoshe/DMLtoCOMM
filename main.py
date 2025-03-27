@@ -5,37 +5,32 @@ import torch
 # from onnx2pytorch import ConvertModel
 import data_parllel
 import os
+import json
 
 
 def main():
-    # Load the ONNX model
-    model_path = "C:/Users/shirm/PycharmProjects/Project/imagenet/resnet50-v1-7.onnx"
-    #model_path = "C:/Users/nadav/PycharmProjects/DMLtoCOMM/resnet50-v1-7.onnx"  # Replace with model path
-    onnx_model = onnx_analyze.load_model(model_path)
 
-    os.makedirs("svg_file", exist_ok=True)
+    # ============================ INITIALIZATION ============================ #
+    model_path = "imagenet/resnet50-v1-7.onnx"  # replace with model path
+    onnx_model = onnx_analyze.load_model(model_path)  # load the ONNX model
 
-    # Create Node objects and build the hierarchy
-    nodes_list = onnx_analyze.create_nodes(onnx_model)
+    os.makedirs("svg_file", exist_ok=True)     # make folder for the svg file
 
-    # Generate an SVG graph using Graphviz
-   # onnx_analyze.create_svg_graph(nodes_list, "my_onnx_graph")
+    json_path = "user_inputs.json"      # load user inputs json file
+    with open(json_path, 'r') as f:
+        config = json.load(f)
 
-    # data parallel
-    d = 3
+    # extract parallelism parameters
+    d = config['parallelism']['data_parallel_size']
 
-    model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d)
+    nodes_list = onnx_analyze.create_nodes(onnx_model)     # Create Node objects and build the hierarchy
 
- #   merge_node_list = data_parllel.flatten_and_dedup(node_replicas)
- #   onnx_analyze.create_svg_graph(merge_node_list)
-#  onnx_analyze.create_svg_graph_with_clusters(merge_node_list)
-
-    onnx_analyze.create_interactive_high_level_svg(model_replicas)
-
-
-    # Then generate each detailed replica view:
-    for i, replica in enumerate(model_replicas):
+    # ============================ DATA PARALLELISM ============================ #
+    model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d)  # replica the model d times
+    onnx_analyze.create_interactive_high_level_svg(model_replicas)      # create interactive high level graph
+    for i, replica in enumerate(model_replicas):     # generate each detailed replica view
         onnx_analyze.create_svg_graph(replica, output_file=f"gpu_{i}_detail")
+
 
 if __name__ == "__main__":
     main()
