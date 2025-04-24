@@ -16,8 +16,8 @@ def create_svg_graph(nodes_list, output_file="onnx_model_graph"):
     # Add nodes with parameters (id d p t, data size)
     for node in nodes_list:
         # Build label: name, op_type
-        gpu_num = f"data id {node.id_d}" if node.id_d is not None else "No GPU"
-        label = f"{node.name}\n({node.op_type})\ndata_size: {node.data_size}"
+#        gpu_num = f"data id {node.id_d}" if node.id_d is not None else "No GPU"
+        label = f"data id: {node.id_d}\n{node.name}\n({node.op_type})\ndata_size: {node.data_size}"
         dot.node(str(id(node)), label=label)
 
     # Add edges
@@ -53,7 +53,7 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
     # Add collective nodes globally
     for node in nodes_list:
         if node.collective:
-            label = f"{node.name}\n({node.op_type})"
+            label = f"{node.name}\n({node.op_type}\ndata id: {node.id_d})"
             dot.node(str(id(node)), label=label, shape="box", style="filled", fillcolor="lightblue")
 
     # Add clusters per GPU
@@ -78,6 +78,7 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
 
 def create_interactive_high_level_svg(model_replicas, output_file="interactive_high_level"):
     """
+    DATA Parallelism
     Creates an interactive high-level SVG graph:
     - One node per GPU, linking to detailed GPU graph (e.g., gpu_0_detail.svg)
     - Shared collective ops: ScatterInput and AllReduceGrad
@@ -95,7 +96,7 @@ def create_interactive_high_level_svg(model_replicas, output_file="interactive_h
             if node.collective:
                 collectives.append(node)
             else:
-                gpu_groups[node.gpu_num].append(node)
+                gpu_groups[node.id_d].append(node)
 
     # Step 3: Add collective nodes
     for collective_node in collectives:

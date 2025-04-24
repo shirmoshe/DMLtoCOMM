@@ -35,7 +35,8 @@ def replicate_model(nodes_list: list[Node], d: int) -> list[list[Node]]:
                 name=node.name,
                 op_type=node.op_type
             )
-            cloned_node.gpu_num = i
+            cloned_node.id_d = i
+   #         cloned_node.gpu_num = i
             node_mapping[node] = cloned_node
             replica_nodes.append(cloned_node)
 

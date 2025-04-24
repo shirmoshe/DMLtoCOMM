@@ -9,8 +9,12 @@ class Node:
         self.op_type = op_type           # Operation type (e.g., MatMul, Add)
         self.parents = []                # List of parent nodes
         self.gpu = None
-        self.collective = False           # define operator as collective
+        self.collective = False          # define operator as collective
         self.data_size = 0
+
+        self.id_d = 0
+        self.id_t = 0
+        self.id_p = 0
 
     def __repr__(self):
         return f"{self.name} ({self.op_type})"
