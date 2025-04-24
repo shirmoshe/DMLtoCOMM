@@ -1,23 +1,17 @@
 // High-Level Data Parallel Graph
 digraph {
-	2568757693456 [label="ScatterInput
-(Scatter)" fillcolor=lightblue shape=box style=filled]
-	2568896459200 [label="AllReduceGrad
+	2409401324496 [label="AllReduceGrad
 (AllReduce)" fillcolor=lightblue shape=box style=filled]
-	gpu_0 [label="GPU 0
+	gpu_0 [label="Data id: 0
 (ReplicaModel)" fillcolor=lightgray href="gpu_0_detail.svg" shape=box3d style=filled target=_blank]
-	2568757693456 -> gpu_0
-	gpu_0 -> 2568896459200
-	gpu_1 [label="GPU 1
+	gpu_0 -> 2409401324496
+	gpu_1 [label="Data id: 1
 (ReplicaModel)" fillcolor=lightgray href="gpu_1_detail.svg" shape=box3d style=filled target=_blank]
-	2568757693456 -> gpu_1
-	gpu_1 -> 2568896459200
-	gpu_2 [label="GPU 2
+	gpu_1 -> 2409401324496
+	gpu_2 [label="Data id: 2
 (ReplicaModel)" fillcolor=lightgray href="gpu_2_detail.svg" shape=box3d style=filled target=_blank]
-	2568757693456 -> gpu_2
-	gpu_2 -> 2568896459200
-	gpu_3 [label="GPU 3
+	gpu_2 -> 2409401324496
+	gpu_3 [label="Data id: 3
 (ReplicaModel)" fillcolor=lightgray href="gpu_3_detail.svg" shape=box3d style=filled target=_blank]
-	2568757693456 -> gpu_3
-	gpu_3 -> 2568896459200
+	gpu_3 -> 2409401324496
 }

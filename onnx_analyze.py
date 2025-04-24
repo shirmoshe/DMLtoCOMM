@@ -7,6 +7,7 @@ import webbrowser
 from collections import defaultdict
 import data_parllel
 
+
 def load_model(model_path):
     """Loads an ONNX model, performs shape inference, and prints input/output shapes for each layer."""
     model = onnx.load(model_path)
@@ -51,11 +52,11 @@ def create_svg_graph(nodes_list, output_file="onnx_model_graph"):
 
     dot = Digraph(comment='ONNX Model Graph', format='svg')
 
-    # Add nodes with GPU number and styling
+    # Add nodes with parameters (id d p t, data size)
     for node in nodes_list:
-        # Build label: name, op_type, and GPU number (if available)
-        gpu_info = f"GPU {node.gpu_num}" if node.gpu_num is not None else "No GPU"
-        label = f"{node.name}\n({node.op_type})\n{gpu_info}"
+        # Build label: name, op_type
+        gpu_num = f"data id {node.id_d}" if node.id_d is not None else "No GPU"
+        label = f"{node.name}\n({node.op_type})\ndata_size: {node.data_size}"
         dot.node(str(id(node)), label=label)
 
     # Add edges
@@ -80,7 +81,7 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
 
     dot = Digraph(comment="Clustered Data Parallel Graph", format='svg')
 
-    # Split nodes by GPU
+    # Split nodes by id_d
     from collections import defaultdict
     gpu_groups = defaultdict(list)
     for node in nodes_list:
@@ -91,7 +92,7 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
     # Add collective nodes globally
     for node in nodes_list:
         if node.collective:
-            label = f"{node.name}\n({node.op_type})\nGPU {node.gpu_num}"
+            label = f"{node.name}\n({node.op_type})"
             dot.node(str(id(node)), label=label, shape="box", style="filled", fillcolor="lightblue")
 
     # Add clusters per GPU
@@ -112,6 +113,7 @@ def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):
     out_path = dot.render(f"svg_file/{output_file}", view=False)
     print(f"Clustered Graph saved to: {out_path}")
     webbrowser.open_new_tab(out_path)
+
 
 def create_interactive_high_level_svg(model_replicas, output_file="interactive_high_level"):
     """
@@ -142,7 +144,7 @@ def create_interactive_high_level_svg(model_replicas, output_file="interactive_h
     # Step 4: Add abstract GPU nodes and connect to collectives
     for gpu, group_nodes in gpu_groups.items():
         gpu_node_name = f"gpu_{gpu}"
-        label = f"GPU {gpu}\n(ReplicaModel)"
+        label = f"Data id: {gpu}\n(ReplicaModel)"
         href = f"gpu_{gpu}_detail.svg"
 
         dot.node(gpu_node_name, label=label, shape="box3d", style="filled", fillcolor="lightgray", href=href, target="_blank")

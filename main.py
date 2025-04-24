@@ -6,6 +6,7 @@ import torch
 import data_parllel
 import os
 import json
+from class_Topology import Topology
 
 
 def main():
@@ -20,13 +21,34 @@ def main():
     with open(json_path, 'r') as f:
         config = json.load(f)
 
+    data_size = config['model']['data_size']
+
+    # ============================ TOPOLOGY ============================ #
     # extract parallelism parameters
     d = config['parallelism']['data_parallel_size']
+    t = config['parallelism']['tensor_parallel_size']
+    p = config['parallelism']['pipeline_parallel_size']
+    total_gpu = config['topology']['num_gpus']
+    topology_type = config['topology']['type']
 
-    nodes_list = onnx_analyze.create_nodes(onnx_model)     # Create Node objects and build the hierarchy
+    # Validate parallelism parameters
+    if d * t * p != total_gpu:
+        raise ValueError(f"Invalid GPU configuration: "
+                         f"d={d}, t={t}, p={p}, but total_gpu={total_gpu}. "
+                         f"Expected: d * t * p = {d * t * p}")
+
+    # Create topology
+    topology = Topology(topology_type, total_gpu)
+    topology.add_GPU(d, t, p)
+
+    # Add coordinate to GPU
+
+
+    # Create Node objects and build the hierarchy
+    nodes_list = onnx_analyze.create_nodes(onnx_model)
 
     # ============================ DATA PARALLELISM ============================ #
-    model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d)  # replica the model d times
+    model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d, data_size)  # replica model d times
     onnx_analyze.create_interactive_high_level_svg(model_replicas)      # create interactive high level graph
     for i, replica in enumerate(model_replicas):     # generate each detailed replica view
         onnx_analyze.create_svg_graph(replica, output_file=f"gpu_{i}_detail")

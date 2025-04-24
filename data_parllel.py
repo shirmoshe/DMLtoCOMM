@@ -48,7 +48,7 @@ def replicate_model(nodes_list: list[Node], d: int) -> list[list[Node]]:
 
     return replicas
 
-def create_data_parallel_collectives(node_list, d):
+def create_data_parallel_collectives(node_list, d, data_size):
     """
        Creates collective communication nodes (Scatter and AllReduce)
        for data parallelism and connects them to the model replicas.
@@ -59,26 +59,30 @@ def create_data_parallel_collectives(node_list, d):
        Returns:
            list[Node]: A flat list of all nodes including replicas and collective operators.
        """
+    batch_size_per_replica = data_size / d
+
+
     node_replicas = replicate_model(node_list, d)
 
     full_replicas = []
-
-    # create collective nodes
-    scatter_node = Node(index="data_collective_0", name="ScatterInput", op_type="Scatter")
-    scatter_node.gpu_num = 0
-    scatter_node.collective = True
 
     allreduce_node = Node(index="data_collective_1", name="AllReduceGrad", op_type="AllReduce")
     allreduce_node.gpu_num = 0
     allreduce_node.collective = True
 
-    # Connect Scatter → Input node of each replica
-    for replica_nodes in node_replicas:
+    # Connect Read → Input node of each replica
+    for i, replica_nodes in enumerate(node_replicas):
+        # create read data nodes
+        read_data_node = Node(index=f"data_read_{i:02d}", name="ReadData", op_type="Read")
+        read_data_node.gpu_num = i
+        node_replicas[i].append(read_data_node)
+
         input_nodes = [n for n in replica_nodes if len(n.parents) == 0]  # find nodes with no parents = input nodes
 #        if len(input_nodes) != 1:
 #           raise ValueError("Each replica must have exactly one input node.")
         input_node = input_nodes[0]
-        input_node.parents.append(scatter_node)
+        input_node.parents.append(read_data_node)
+        read_data_node.data_size = batch_size_per_replica
 
     # Connect last node of each replica → AllReduce
     for replica_nodes in node_replicas:
@@ -89,7 +93,7 @@ def create_data_parallel_collectives(node_list, d):
         allreduce_node.parents.append(output_node)
 
         # Build the full list for this replica
-        full_list = [scatter_node] + replica_nodes + [allreduce_node]
+        full_list = replica_nodes + [allreduce_node]
         full_replicas.append(full_list)
 
     return full_replicas
