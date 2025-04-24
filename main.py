@@ -7,7 +7,7 @@ import data_parllel
 import os
 import json
 from class_Topology import Topology
-
+import result_visualization
 
 def main():
 
@@ -49,9 +49,9 @@ def main():
 
     # ============================ DATA PARALLELISM ============================ #
     model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d, data_size)  # replica model d times
-    onnx_analyze.create_interactive_high_level_svg(model_replicas)      # create interactive high level graph
+    result_visualization.create_interactive_high_level_svg(model_replicas)      # create interactive high level graph
     for i, replica in enumerate(model_replicas):     # generate each detailed replica view
-        onnx_analyze.create_svg_graph(replica, output_file=f"gpu_{i}_detail")
+        result_visualization.create_svg_graph(replica, output_file=f"gpu_{i}_detail")
 
 
 if __name__ == "__main__":
