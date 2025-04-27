@@ -33,7 +33,8 @@ def replicate_model(nodes_list: list[Node], d: int) -> list[list[Node]]:
             cloned_node = Node(
                 index=node.index,
                 name=node.name,
-                op_type=node.op_type
+                op_type=node.op_type,
+                layer=node.layer
             )
             cloned_node.id_d = i
    #         cloned_node.gpu_num = i
