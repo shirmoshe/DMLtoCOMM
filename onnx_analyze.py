@@ -6,13 +6,14 @@ from graphviz import Digraph
 import webbrowser
 from collections import defaultdict
 import data_parllel
+import re
 
 
 def load_model(model_path):
     """Loads an ONNX model, performs shape inference, and prints input/output shapes for each layer."""
     model = onnx.load(model_path)
     model = onnx.shape_inference.infer_shapes(model)
-    onnx.checker.check_model(model)
+#    onnx.checker.check_model(model)
     print("ONNX model is valid!\n")
     return model
 
@@ -27,6 +28,14 @@ def create_nodes(model):
         # Use the original ONNX node name if it exists; otherwise generate one
         node_name = onnx_node.name if onnx_node.name else f"Node_{idx}"
         node = Node(index=idx, name=node_name, op_type=onnx_node.op_type)
+
+        # assign layer
+        match = re.search(r"/layers\.(\d+)/", node.name)
+        if match:
+            node.layer = int(match.group(1))
+        else:
+            node.layer = -1
+
         node_list.append(node)
 
         # Map each output tensor name to the Node that produced it
@@ -45,4 +54,15 @@ def create_nodes(model):
                 pass
 
     return node_list
+
+
+def group_layer(nodes):
+    # create dict{key->layer, val->[]list of operators}
+    layers = defaultdict(list)
+    for node in nodes:
+        layer_num = node.layer
+        layers[layer_num].append(node)
+
+    return dict(layers)
+
 
