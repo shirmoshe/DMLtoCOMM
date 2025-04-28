@@ -1,7 +1,7 @@
 from copy import deepcopy
 from class_Node import Node
 from collections import defaultdict
-
+import result_visualization
 
 # take a parameter d from the main.
 # add node to the graph at the beginnig:
@@ -118,3 +118,8 @@ def flatten_and_dedup(full_replicas):
     return merged
 
 
+def create_data_parallel(nodes_list, d, data_size):
+    model_replicas = create_data_parallel_collectives(nodes_list, d, data_size)  # replica model d times
+    result_visualization.create_interactive_high_level_svg(model_replicas)      # create interactive high level graph
+    for d_idx, replica in enumerate(model_replicas):     # generate each detailed replica view
+        result_visualization.create_svg_graph(replica, output_file=f"data_{d_idx}_detail")

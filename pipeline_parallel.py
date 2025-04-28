@@ -71,3 +71,14 @@ def create_send_recv_group(d_id, source_stage, dest_stage, t):
 
     return connections
 
+
+def create_pipeline_parallel(d, p, t, layers):
+    for d_idx in range(d):
+        stage_mapping = create_pipeline_stages(layers, p)
+        result_visualization.create_stage_graph(stage_mapping, d_id=d_idx, output_dir="svg_file")
+
+        for stage_id, stage_layers in stage_mapping.items():
+            result_visualization.create_layer_graph(stage_layers, stage_id=stage_id, d_id=d_idx, output_dir="svg_file")
+
+            connections = create_send_recv_group(d_idx, source_stage=stage_id, dest_stage=stage_id+1, t=t)
+            result_visualization.create_send_recv_gpu_graph(connections, source_stage=stage_id, dest_stage=stage_id+1, d_id = d_idx)

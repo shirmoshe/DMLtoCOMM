@@ -49,22 +49,10 @@ def main():
     layers = onnx_analyze.group_layer(nodes_list)
 
     # ============================ DATA PARALLELISM ============================ #
-    model_replicas = data_parllel.create_data_parallel_collectives(nodes_list, d, data_size)  # replica model d times
-    result_visualization.create_interactive_high_level_svg(model_replicas)      # create interactive high level graph
-    for d_idx, replica in enumerate(model_replicas):     # generate each detailed replica view
-        result_visualization.create_svg_graph(replica, output_file=f"data_{d_idx}_detail")
+    data_parllel.create_data_parallel(nodes_list, d, data_size)
 
     # ============================ PIPELINE PARALLELISM ============================ #
-
-    for d_idx in range(d):
-        stage_mapping = pipeline_parallel.create_pipeline_stages(layers, p)
-        result_visualization.create_stage_graph(stage_mapping, d_id=d_idx, output_dir="svg_file")
-
-        for stage_id, stage_layers in stage_mapping.items():
-            result_visualization.create_layer_graph(stage_layers, stage_id=stage_id, d_id=d_idx, output_dir="svg_file")
-
-            connections = pipeline_parallel.create_send_recv_group(d_idx, source_stage=stage_id, dest_stage=stage_id+1, t=t)
-            result_visualization.create_send_recv_gpu_graph(connections, source_stage=stage_id, dest_stage=stage_id+1, d_id = d_idx)
+    pipeline_parallel.create_pipeline_parallel(d, p, t, layers)
 
 
 if __name__ == "__main__":
