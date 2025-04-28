@@ -1,6 +1,4 @@
-DML to COMM
-# Distributed Machine Learning Task Graph Generator
-
+# DML to COMM - Automated Distributed Machine Learning Communication Trace Generation
 This project provides an automatic system for generating and visualizing task graphs for Distributed Machine Learning (DML), focusing on parallelism strategies: Data Parallelism, Pipeline Parallelism, and Tensor Parallelism.
 
 ---
