@@ -1,0 +1,49 @@
+// Layer 17 data 1 Detail
+digraph {
+	2538201230448 [label="/model/layers.17/input_layernorm/SkipLayerNorm
+(SkipSimplifiedLayerNormalization
+layer: 17)"]
+	2538201230496 [label="/model/layers.17/attn/qkv_proj/MatMul_Q4
+(MatMulNBits
+layer: 17)"]
+	2538201230544 [label="/model/layers.17/attn/GroupQueryAttention
+(GroupQueryAttention
+layer: 17)"]
+	2538201230592 [label="/model/layers.17/attn/o_proj/MatMul_Q4
+(MatMulNBits
+layer: 17)"]
+	2538201230640 [label="/model/layers.17/post_attention_layernorm/SkipLayerNorm
+(SkipSimplifiedLayerNormalization
+layer: 17)"]
+	2538201230688 [label="/model/layers.17/mlp/gate_proj/MatMul_Q4
+(MatMulNBits
+layer: 17)"]
+	2538201230736 [label="/model/layers.17/mlp/up_proj/MatMul_Q4
+(MatMulNBits
+layer: 17)"]
+	2538201230784 [label="/model/layers.17/mlp/act_fn/Sigmoid
+(Sigmoid
+layer: 17)"]
+	2538201230832 [label="/model/layers.17/mlp/act_fn/Mul
+(Mul
+layer: 17)"]
+	2538201230880 [label="/model/layers.17/mlp/Mul
+(Mul
+layer: 17)"]
+	2538201230928 [label="/model/layers.17/mlp/down_proj/MatMul_Q4
+(MatMulNBits
+layer: 17)"]
+	2538201230448 -> 2538201230496
+	2538201230496 -> 2538201230544
+	2538201230544 -> 2538201230592
+	2538201230448 -> 2538201230640
+	2538201230592 -> 2538201230640
+	2538201230640 -> 2538201230688
+	2538201230640 -> 2538201230736
+	2538201230688 -> 2538201230784
+	2538201230688 -> 2538201230832
+	2538201230784 -> 2538201230832
+	2538201230832 -> 2538201230880
+	2538201230736 -> 2538201230880
+	2538201230880 -> 2538201230928
+}

@@ -1,0 +1,49 @@
+// Layer 13 data 3 Detail
+digraph {
+	2538201228336 [label="/model/layers.13/input_layernorm/SkipLayerNorm
+(SkipSimplifiedLayerNormalization
+layer: 13)"]
+	2538201228384 [label="/model/layers.13/attn/qkv_proj/MatMul_Q4
+(MatMulNBits
+layer: 13)"]
+	2538201228432 [label="/model/layers.13/attn/GroupQueryAttention
+(GroupQueryAttention
+layer: 13)"]
+	2538201228480 [label="/model/layers.13/attn/o_proj/MatMul_Q4
+(MatMulNBits
+layer: 13)"]
+	2538201228528 [label="/model/layers.13/post_attention_layernorm/SkipLayerNorm
+(SkipSimplifiedLayerNormalization
+layer: 13)"]
+	2538201228576 [label="/model/layers.13/mlp/gate_proj/MatMul_Q4
+(MatMulNBits
+layer: 13)"]
+	2538201228624 [label="/model/layers.13/mlp/up_proj/MatMul_Q4
+(MatMulNBits
+layer: 13)"]
+	2538201228672 [label="/model/layers.13/mlp/act_fn/Sigmoid
+(Sigmoid
+layer: 13)"]
+	2538201228720 [label="/model/layers.13/mlp/act_fn/Mul
+(Mul
+layer: 13)"]
+	2538201228768 [label="/model/layers.13/mlp/Mul
+(Mul
+layer: 13)"]
+	2538201228816 [label="/model/layers.13/mlp/down_proj/MatMul_Q4
+(MatMulNBits
+layer: 13)"]
+	2538201228336 -> 2538201228384
+	2538201228384 -> 2538201228432
+	2538201228432 -> 2538201228480
+	2538201228336 -> 2538201228528
+	2538201228480 -> 2538201228528
+	2538201228528 -> 2538201228576
+	2538201228528 -> 2538201228624
+	2538201228576 -> 2538201228672
+	2538201228576 -> 2538201228720
+	2538201228672 -> 2538201228720
+	2538201228720 -> 2538201228768
+	2538201228624 -> 2538201228768
+	2538201228768 -> 2538201228816
+}

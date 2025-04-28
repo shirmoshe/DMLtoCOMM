@@ -125,7 +125,7 @@ def create_interactive_high_level_svg(model_replicas, output_file="interactive_h
     webbrowser.open_new_tab(out_path)
 
 
-def create_layered_svg(layer_groups, d_id=0, output_dir="svg_layer_file"):
+def create_layered_svg(layer_groups, d_id=0, output_dir="svg_file"):
     """
     create high level interactive graph with layers
     """

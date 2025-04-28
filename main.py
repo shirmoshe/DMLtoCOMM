@@ -18,7 +18,7 @@ def main():
 
     os.makedirs("svg_file", exist_ok=True)     # make folder for the svg file
 
-    json_path = r"C:\Users\shirm\PycharmProjects\Project\load_model\code\user_inputs.json"      # load user inputs json file
+    json_path = r"C:\Users\shirm\PycharmProjects\Project\load_model\code_files\user_inputs.json"      # load user inputs json file
     with open(json_path, 'r') as f:
         config = json.load(f)
 
@@ -55,7 +55,7 @@ def main():
     # ============================ PIPELINE PARALLELISM ============================ #
 
     for d_idx in range(d):
-        result_visualization.create_layered_svg(layers, d_idx, "svg_layer_file")
+        result_visualization.create_layered_svg(layers, d_idx, "svg_file")
 
 
 

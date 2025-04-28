@@ -1,0 +1,49 @@
+// Layer 9 data 0 Detail
+digraph {
+	2538201168816 [label="/model/layers.9/input_layernorm/SkipLayerNorm
+(SkipSimplifiedLayerNormalization
+layer: 9)"]
+	2538201168864 [label="/model/layers.9/attn/qkv_proj/MatMul_Q4
+(MatMulNBits
+layer: 9)"]
+	2538201168912 [label="/model/layers.9/attn/GroupQueryAttention
+(GroupQueryAttention
+layer: 9)"]
+	2538201168960 [label="/model/layers.9/attn/o_proj/MatMul_Q4
+(MatMulNBits
+layer: 9)"]
+	2538201169008 [label="/model/layers.9/post_attention_layernorm/SkipLayerNorm
+(SkipSimplifiedLayerNormalization
+layer: 9)"]
+	2538201169056 [label="/model/layers.9/mlp/gate_proj/MatMul_Q4
+(MatMulNBits
+layer: 9)"]
+	2538201169104 [label="/model/layers.9/mlp/up_proj/MatMul_Q4
+(MatMulNBits
+layer: 9)"]
+	2538201169152 [label="/model/layers.9/mlp/act_fn/Sigmoid
+(Sigmoid
+layer: 9)"]
+	2538201169200 [label="/model/layers.9/mlp/act_fn/Mul
+(Mul
+layer: 9)"]
+	2538201169248 [label="/model/layers.9/mlp/Mul
+(Mul
+layer: 9)"]
+	2538201169296 [label="/model/layers.9/mlp/down_proj/MatMul_Q4
+(MatMulNBits
+layer: 9)"]
+	2538201168816 -> 2538201168864
+	2538201168864 -> 2538201168912
+	2538201168912 -> 2538201168960
+	2538201168816 -> 2538201169008
+	2538201168960 -> 2538201169008
+	2538201169008 -> 2538201169056
+	2538201169008 -> 2538201169104
+	2538201169056 -> 2538201169152
+	2538201169056 -> 2538201169200
+	2538201169152 -> 2538201169200
+	2538201169200 -> 2538201169248
+	2538201169104 -> 2538201169248
+	2538201169248 -> 2538201169296
+}
