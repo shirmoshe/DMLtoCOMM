@@ -1,49 +1,49 @@
 // Layer 3 data 1 Detail
 digraph {
-	2320323939776 [label="/model/layers.3/input_layernorm/SkipLayerNorm
+	2076005007072 [label="/model/layers.3/input_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 3)"]
-	2320323939824 [label="/model/layers.3/attn/qkv_proj/MatMul_Q4
+	2076005007120 [label="/model/layers.3/attn/qkv_proj/MatMul_Q4
 (MatMulNBits
 layer: 3)"]
-	2320323939872 [label="/model/layers.3/attn/GroupQueryAttention
+	2076005007168 [label="/model/layers.3/attn/GroupQueryAttention
 (GroupQueryAttention
 layer: 3)"]
-	2320323940016 [label="/model/layers.3/attn/o_proj/MatMul_Q4
+	2076005007312 [label="/model/layers.3/attn/o_proj/MatMul_Q4
 (MatMulNBits
 layer: 3)"]
-	2320323939920 [label="/model/layers.3/post_attention_layernorm/SkipLayerNorm
+	2076005007216 [label="/model/layers.3/post_attention_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 3)"]
-	2320324026528 [label="/model/layers.3/mlp/gate_proj/MatMul_Q4
+	2076005097872 [label="/model/layers.3/mlp/gate_proj/MatMul_Q4
 (MatMulNBits
 layer: 3)"]
-	2320324026576 [label="/model/layers.3/mlp/up_proj/MatMul_Q4
+	2076005097920 [label="/model/layers.3/mlp/up_proj/MatMul_Q4
 (MatMulNBits
 layer: 3)"]
-	2320324026624 [label="/model/layers.3/mlp/act_fn/Sigmoid
+	2076005097968 [label="/model/layers.3/mlp/act_fn/Sigmoid
 (Sigmoid
 layer: 3)"]
-	2320324026672 [label="/model/layers.3/mlp/act_fn/Mul
+	2076005098016 [label="/model/layers.3/mlp/act_fn/Mul
 (Mul
 layer: 3)"]
-	2320324026720 [label="/model/layers.3/mlp/Mul
+	2076005098064 [label="/model/layers.3/mlp/Mul
 (Mul
 layer: 3)"]
-	2320324026768 [label="/model/layers.3/mlp/down_proj/MatMul_Q4
+	2076005098112 [label="/model/layers.3/mlp/down_proj/MatMul_Q4
 (MatMulNBits
 layer: 3)"]
-	2320323939776 -> 2320323939824
-	2320323939824 -> 2320323939872
-	2320323939872 -> 2320323940016
-	2320323939776 -> 2320323939920
-	2320323940016 -> 2320323939920
-	2320323939920 -> 2320324026528
-	2320323939920 -> 2320324026576
-	2320324026528 -> 2320324026624
-	2320324026528 -> 2320324026672
-	2320324026624 -> 2320324026672
-	2320324026672 -> 2320324026720
-	2320324026576 -> 2320324026720
-	2320324026720 -> 2320324026768
+	2076005007072 -> 2076005007120
+	2076005007120 -> 2076005007168
+	2076005007168 -> 2076005007312
+	2076005007072 -> 2076005007216
+	2076005007312 -> 2076005007216
+	2076005007216 -> 2076005097872
+	2076005007216 -> 2076005097920
+	2076005097872 -> 2076005097968
+	2076005097872 -> 2076005098016
+	2076005097968 -> 2076005098016
+	2076005098016 -> 2076005098064
+	2076005097920 -> 2076005098064
+	2076005098064 -> 2076005098112
 }

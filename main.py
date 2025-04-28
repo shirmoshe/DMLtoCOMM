@@ -8,6 +8,8 @@ import os
 import json
 from class_Topology import Topology
 import result_visualization
+import pipeline_parallel
+
 
 def main():
 
@@ -56,6 +58,10 @@ def main():
 
     for d_idx in range(d):
         result_visualization.create_layered_svg(layers, d_idx, "svg_file")
+
+    microbatches = 8
+
+    stages = pipeline_parallel.create_pipeline_stages(layers, p)
 
 
 if __name__ == "__main__":
