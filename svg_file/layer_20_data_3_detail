@@ -1,49 +1,49 @@
 // Layer 20 data 3 Detail
 digraph {
-	2536182973152 [label="/model/layers.20/input_layernorm/SkipLayerNorm
+	1593310311136 [label="/model/layers.20/input_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 20)"]
-	2536182973200 [label="/model/layers.20/attn/qkv_proj/MatMul_Q4
+	1593310311184 [label="/model/layers.20/attn/qkv_proj/MatMul_Q4
 (MatMulNBits
 layer: 20)"]
-	2536182973248 [label="/model/layers.20/attn/GroupQueryAttention
+	1593310311232 [label="/model/layers.20/attn/GroupQueryAttention
 (GroupQueryAttention
 layer: 20)"]
-	2536182973296 [label="/model/layers.20/attn/o_proj/MatMul_Q4
+	1593310311280 [label="/model/layers.20/attn/o_proj/MatMul_Q4
 (MatMulNBits
 layer: 20)"]
-	2536182973344 [label="/model/layers.20/post_attention_layernorm/SkipLayerNorm
+	1593310311328 [label="/model/layers.20/post_attention_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 20)"]
-	2536182973392 [label="/model/layers.20/mlp/gate_proj/MatMul_Q4
+	1593310311376 [label="/model/layers.20/mlp/gate_proj/MatMul_Q4
 (MatMulNBits
 layer: 20)"]
-	2536182973440 [label="/model/layers.20/mlp/up_proj/MatMul_Q4
+	1593310311424 [label="/model/layers.20/mlp/up_proj/MatMul_Q4
 (MatMulNBits
 layer: 20)"]
-	2536182973488 [label="/model/layers.20/mlp/act_fn/Sigmoid
+	1593310311472 [label="/model/layers.20/mlp/act_fn/Sigmoid
 (Sigmoid
 layer: 20)"]
-	2536182973536 [label="/model/layers.20/mlp/act_fn/Mul
+	1593310311520 [label="/model/layers.20/mlp/act_fn/Mul
 (Mul
 layer: 20)"]
-	2536182973584 [label="/model/layers.20/mlp/Mul
+	1593310311568 [label="/model/layers.20/mlp/Mul
 (Mul
 layer: 20)"]
-	2536182973632 [label="/model/layers.20/mlp/down_proj/MatMul_Q4
+	1593310311616 [label="/model/layers.20/mlp/down_proj/MatMul_Q4
 (MatMulNBits
 layer: 20)"]
-	2536182973152 -> 2536182973200
-	2536182973200 -> 2536182973248
-	2536182973248 -> 2536182973296
-	2536182973152 -> 2536182973344
-	2536182973296 -> 2536182973344
-	2536182973344 -> 2536182973392
-	2536182973344 -> 2536182973440
-	2536182973392 -> 2536182973488
-	2536182973392 -> 2536182973536
-	2536182973488 -> 2536182973536
-	2536182973536 -> 2536182973584
-	2536182973440 -> 2536182973584
-	2536182973584 -> 2536182973632
+	1593310311136 -> 1593310311184
+	1593310311184 -> 1593310311232
+	1593310311232 -> 1593310311280
+	1593310311136 -> 1593310311328
+	1593310311280 -> 1593310311328
+	1593310311328 -> 1593310311376
+	1593310311328 -> 1593310311424
+	1593310311376 -> 1593310311472
+	1593310311376 -> 1593310311520
+	1593310311472 -> 1593310311520
+	1593310311520 -> 1593310311568
+	1593310311424 -> 1593310311568
+	1593310311568 -> 1593310311616
 }

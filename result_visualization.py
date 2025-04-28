@@ -8,6 +8,7 @@ from collections import defaultdict
 import data_parllel
 import os
 
+
 def create_svg_graph(nodes_list, output_file="onnx_model_graph"):
     """Generate an SVG graph of the nodes using Graphviz and open it automatically."""
 
@@ -31,7 +32,6 @@ def create_svg_graph(nodes_list, output_file="onnx_model_graph"):
 
     # Automatically open the SVG in a new browser tab
     #webbrowser.open_new_tab(out_path)
-
 
 
 def create_svg_graph_with_clusters(nodes_list, output_file="clustered_graph"):

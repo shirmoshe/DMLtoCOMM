@@ -25,131 +25,88 @@ digraph {
 	layer_3_20 [label="layer 20" fillcolor=lightyellow href="layer_20_data_3_detail.svg" shape=box style=filled target=_blank]
 	layer_3_21 [label="layer 21" fillcolor=lightyellow href="layer_21_data_3_detail.svg" shape=box style=filled target=_blank]
 	layer_3_22 [label="layer 22" fillcolor=lightyellow href="layer_22_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_22 -> "layer_3_-1"
 	"layer_3_-1" -> layer_3_0
-	layer_3_21 -> layer_3_0
-	layer_3_21 -> layer_3_0
 	"layer_3_-1" -> layer_3_0
 	"layer_3_-1" -> layer_3_0
 	"layer_3_-1" -> layer_3_0
 	layer_3_0 -> layer_3_1
 	layer_3_0 -> layer_3_1
-	layer_3_21 -> layer_3_1
-	layer_3_21 -> layer_3_1
 	"layer_3_-1" -> layer_3_1
 	"layer_3_-1" -> layer_3_1
 	layer_3_1 -> layer_3_2
 	layer_3_1 -> layer_3_2
-	layer_3_21 -> layer_3_2
-	layer_3_21 -> layer_3_2
 	"layer_3_-1" -> layer_3_2
 	"layer_3_-1" -> layer_3_2
 	layer_3_2 -> layer_3_3
 	layer_3_2 -> layer_3_3
-	layer_3_21 -> layer_3_3
-	layer_3_21 -> layer_3_3
 	"layer_3_-1" -> layer_3_3
 	"layer_3_-1" -> layer_3_3
 	layer_3_3 -> layer_3_4
 	layer_3_3 -> layer_3_4
-	layer_3_21 -> layer_3_4
-	layer_3_21 -> layer_3_4
 	"layer_3_-1" -> layer_3_4
 	"layer_3_-1" -> layer_3_4
 	layer_3_4 -> layer_3_5
 	layer_3_4 -> layer_3_5
-	layer_3_21 -> layer_3_5
-	layer_3_21 -> layer_3_5
 	"layer_3_-1" -> layer_3_5
 	"layer_3_-1" -> layer_3_5
 	layer_3_5 -> layer_3_6
 	layer_3_5 -> layer_3_6
-	layer_3_21 -> layer_3_6
-	layer_3_21 -> layer_3_6
 	"layer_3_-1" -> layer_3_6
 	"layer_3_-1" -> layer_3_6
 	layer_3_6 -> layer_3_7
 	layer_3_6 -> layer_3_7
-	layer_3_21 -> layer_3_7
-	layer_3_21 -> layer_3_7
 	"layer_3_-1" -> layer_3_7
 	"layer_3_-1" -> layer_3_7
 	layer_3_7 -> layer_3_8
 	layer_3_7 -> layer_3_8
-	layer_3_21 -> layer_3_8
-	layer_3_21 -> layer_3_8
 	"layer_3_-1" -> layer_3_8
 	"layer_3_-1" -> layer_3_8
 	layer_3_8 -> layer_3_9
 	layer_3_8 -> layer_3_9
-	layer_3_21 -> layer_3_9
-	layer_3_21 -> layer_3_9
 	"layer_3_-1" -> layer_3_9
 	"layer_3_-1" -> layer_3_9
 	layer_3_9 -> layer_3_10
 	layer_3_9 -> layer_3_10
-	layer_3_21 -> layer_3_10
-	layer_3_21 -> layer_3_10
 	"layer_3_-1" -> layer_3_10
 	"layer_3_-1" -> layer_3_10
 	layer_3_10 -> layer_3_11
 	layer_3_10 -> layer_3_11
-	layer_3_21 -> layer_3_11
-	layer_3_21 -> layer_3_11
 	"layer_3_-1" -> layer_3_11
 	"layer_3_-1" -> layer_3_11
 	layer_3_11 -> layer_3_12
 	layer_3_11 -> layer_3_12
-	layer_3_21 -> layer_3_12
-	layer_3_21 -> layer_3_12
 	"layer_3_-1" -> layer_3_12
 	"layer_3_-1" -> layer_3_12
 	layer_3_12 -> layer_3_13
 	layer_3_12 -> layer_3_13
-	layer_3_21 -> layer_3_13
-	layer_3_21 -> layer_3_13
 	"layer_3_-1" -> layer_3_13
 	"layer_3_-1" -> layer_3_13
 	layer_3_13 -> layer_3_14
 	layer_3_13 -> layer_3_14
-	layer_3_21 -> layer_3_14
-	layer_3_21 -> layer_3_14
 	"layer_3_-1" -> layer_3_14
 	"layer_3_-1" -> layer_3_14
 	layer_3_14 -> layer_3_15
 	layer_3_14 -> layer_3_15
-	layer_3_21 -> layer_3_15
-	layer_3_21 -> layer_3_15
 	"layer_3_-1" -> layer_3_15
 	"layer_3_-1" -> layer_3_15
 	layer_3_15 -> layer_3_16
 	layer_3_15 -> layer_3_16
-	layer_3_21 -> layer_3_16
-	layer_3_21 -> layer_3_16
 	"layer_3_-1" -> layer_3_16
 	"layer_3_-1" -> layer_3_16
 	layer_3_16 -> layer_3_17
 	layer_3_16 -> layer_3_17
-	layer_3_21 -> layer_3_17
-	layer_3_21 -> layer_3_17
 	"layer_3_-1" -> layer_3_17
 	"layer_3_-1" -> layer_3_17
 	layer_3_17 -> layer_3_18
 	layer_3_17 -> layer_3_18
-	layer_3_21 -> layer_3_18
-	layer_3_21 -> layer_3_18
 	"layer_3_-1" -> layer_3_18
 	"layer_3_-1" -> layer_3_18
 	layer_3_18 -> layer_3_19
 	layer_3_18 -> layer_3_19
-	layer_3_21 -> layer_3_19
-	layer_3_21 -> layer_3_19
 	"layer_3_-1" -> layer_3_19
 	"layer_3_-1" -> layer_3_19
 	layer_3_19 -> layer_3_20
 	layer_3_19 -> layer_3_20
-	layer_3_21 -> layer_3_20
-	layer_3_21 -> layer_3_20
 	"layer_3_-1" -> layer_3_20
 	"layer_3_-1" -> layer_3_20
 	layer_3_20 -> layer_3_21

@@ -25,131 +25,88 @@ digraph {
 	layer_1_20 [label="layer 20" fillcolor=lightyellow href="layer_20_data_1_detail.svg" shape=box style=filled target=_blank]
 	layer_1_21 [label="layer 21" fillcolor=lightyellow href="layer_21_data_1_detail.svg" shape=box style=filled target=_blank]
 	layer_1_22 [label="layer 22" fillcolor=lightyellow href="layer_22_data_1_detail.svg" shape=box style=filled target=_blank]
-	layer_1_22 -> "layer_1_-1"
 	"layer_1_-1" -> layer_1_0
-	layer_1_21 -> layer_1_0
-	layer_1_21 -> layer_1_0
 	"layer_1_-1" -> layer_1_0
 	"layer_1_-1" -> layer_1_0
 	"layer_1_-1" -> layer_1_0
 	layer_1_0 -> layer_1_1
 	layer_1_0 -> layer_1_1
-	layer_1_21 -> layer_1_1
-	layer_1_21 -> layer_1_1
 	"layer_1_-1" -> layer_1_1
 	"layer_1_-1" -> layer_1_1
 	layer_1_1 -> layer_1_2
 	layer_1_1 -> layer_1_2
-	layer_1_21 -> layer_1_2
-	layer_1_21 -> layer_1_2
 	"layer_1_-1" -> layer_1_2
 	"layer_1_-1" -> layer_1_2
 	layer_1_2 -> layer_1_3
 	layer_1_2 -> layer_1_3
-	layer_1_21 -> layer_1_3
-	layer_1_21 -> layer_1_3
 	"layer_1_-1" -> layer_1_3
 	"layer_1_-1" -> layer_1_3
 	layer_1_3 -> layer_1_4
 	layer_1_3 -> layer_1_4
-	layer_1_21 -> layer_1_4
-	layer_1_21 -> layer_1_4
 	"layer_1_-1" -> layer_1_4
 	"layer_1_-1" -> layer_1_4
 	layer_1_4 -> layer_1_5
 	layer_1_4 -> layer_1_5
-	layer_1_21 -> layer_1_5
-	layer_1_21 -> layer_1_5
 	"layer_1_-1" -> layer_1_5
 	"layer_1_-1" -> layer_1_5
 	layer_1_5 -> layer_1_6
 	layer_1_5 -> layer_1_6
-	layer_1_21 -> layer_1_6
-	layer_1_21 -> layer_1_6
 	"layer_1_-1" -> layer_1_6
 	"layer_1_-1" -> layer_1_6
 	layer_1_6 -> layer_1_7
 	layer_1_6 -> layer_1_7
-	layer_1_21 -> layer_1_7
-	layer_1_21 -> layer_1_7
 	"layer_1_-1" -> layer_1_7
 	"layer_1_-1" -> layer_1_7
 	layer_1_7 -> layer_1_8
 	layer_1_7 -> layer_1_8
-	layer_1_21 -> layer_1_8
-	layer_1_21 -> layer_1_8
 	"layer_1_-1" -> layer_1_8
 	"layer_1_-1" -> layer_1_8
 	layer_1_8 -> layer_1_9
 	layer_1_8 -> layer_1_9
-	layer_1_21 -> layer_1_9
-	layer_1_21 -> layer_1_9
 	"layer_1_-1" -> layer_1_9
 	"layer_1_-1" -> layer_1_9
 	layer_1_9 -> layer_1_10
 	layer_1_9 -> layer_1_10
-	layer_1_21 -> layer_1_10
-	layer_1_21 -> layer_1_10
 	"layer_1_-1" -> layer_1_10
 	"layer_1_-1" -> layer_1_10
 	layer_1_10 -> layer_1_11
 	layer_1_10 -> layer_1_11
-	layer_1_21 -> layer_1_11
-	layer_1_21 -> layer_1_11
 	"layer_1_-1" -> layer_1_11
 	"layer_1_-1" -> layer_1_11
 	layer_1_11 -> layer_1_12
 	layer_1_11 -> layer_1_12
-	layer_1_21 -> layer_1_12
-	layer_1_21 -> layer_1_12
 	"layer_1_-1" -> layer_1_12
 	"layer_1_-1" -> layer_1_12
 	layer_1_12 -> layer_1_13
 	layer_1_12 -> layer_1_13
-	layer_1_21 -> layer_1_13
-	layer_1_21 -> layer_1_13
 	"layer_1_-1" -> layer_1_13
 	"layer_1_-1" -> layer_1_13
 	layer_1_13 -> layer_1_14
 	layer_1_13 -> layer_1_14
-	layer_1_21 -> layer_1_14
-	layer_1_21 -> layer_1_14
 	"layer_1_-1" -> layer_1_14
 	"layer_1_-1" -> layer_1_14
 	layer_1_14 -> layer_1_15
 	layer_1_14 -> layer_1_15
-	layer_1_21 -> layer_1_15
-	layer_1_21 -> layer_1_15
 	"layer_1_-1" -> layer_1_15
 	"layer_1_-1" -> layer_1_15
 	layer_1_15 -> layer_1_16
 	layer_1_15 -> layer_1_16
-	layer_1_21 -> layer_1_16
-	layer_1_21 -> layer_1_16
 	"layer_1_-1" -> layer_1_16
 	"layer_1_-1" -> layer_1_16
 	layer_1_16 -> layer_1_17
 	layer_1_16 -> layer_1_17
-	layer_1_21 -> layer_1_17
-	layer_1_21 -> layer_1_17
 	"layer_1_-1" -> layer_1_17
 	"layer_1_-1" -> layer_1_17
 	layer_1_17 -> layer_1_18
 	layer_1_17 -> layer_1_18
-	layer_1_21 -> layer_1_18
-	layer_1_21 -> layer_1_18
 	"layer_1_-1" -> layer_1_18
 	"layer_1_-1" -> layer_1_18
 	layer_1_18 -> layer_1_19
 	layer_1_18 -> layer_1_19
-	layer_1_21 -> layer_1_19
-	layer_1_21 -> layer_1_19
 	"layer_1_-1" -> layer_1_19
 	"layer_1_-1" -> layer_1_19
 	layer_1_19 -> layer_1_20
 	layer_1_19 -> layer_1_20
-	layer_1_21 -> layer_1_20
-	layer_1_21 -> layer_1_20
 	"layer_1_-1" -> layer_1_20
 	"layer_1_-1" -> layer_1_20
 	layer_1_20 -> layer_1_21

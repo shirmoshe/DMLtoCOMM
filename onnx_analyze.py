@@ -48,7 +48,8 @@ def create_nodes(model):
         for inp in onnx_node.input:
             if inp in output_to_node:
                 parent_node = output_to_node[inp]
-                current_node.parents.append(parent_node)
+                if parent_node.layer <= current_node.layer:
+                    current_node.parents.append(parent_node)
             else:
                 # This is likely a model input, so we skip or handle differently
                 pass
