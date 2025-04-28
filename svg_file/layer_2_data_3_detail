@@ -1,49 +1,49 @@
 // Layer 2 data 3 Detail
 digraph {
-	1593310079824 [label="/model/layers.2/input_layernorm/SkipLayerNorm
+	2320323939248 [label="/model/layers.2/input_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 2)"]
-	1593310079872 [label="/model/layers.2/attn/qkv_proj/MatMul_Q4
+	2320323939296 [label="/model/layers.2/attn/qkv_proj/MatMul_Q4
 (MatMulNBits
 layer: 2)"]
-	1593310079920 [label="/model/layers.2/attn/GroupQueryAttention
+	2320323939344 [label="/model/layers.2/attn/GroupQueryAttention
 (GroupQueryAttention
 layer: 2)"]
-	1593310079968 [label="/model/layers.2/attn/o_proj/MatMul_Q4
+	2320323939392 [label="/model/layers.2/attn/o_proj/MatMul_Q4
 (MatMulNBits
 layer: 2)"]
-	1593310080016 [label="/model/layers.2/post_attention_layernorm/SkipLayerNorm
+	2320323939440 [label="/model/layers.2/post_attention_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 2)"]
-	1593310080064 [label="/model/layers.2/mlp/gate_proj/MatMul_Q4
+	2320323939488 [label="/model/layers.2/mlp/gate_proj/MatMul_Q4
 (MatMulNBits
 layer: 2)"]
-	1593310080112 [label="/model/layers.2/mlp/up_proj/MatMul_Q4
+	2320323939536 [label="/model/layers.2/mlp/up_proj/MatMul_Q4
 (MatMulNBits
 layer: 2)"]
-	1593310080160 [label="/model/layers.2/mlp/act_fn/Sigmoid
+	2320323939584 [label="/model/layers.2/mlp/act_fn/Sigmoid
 (Sigmoid
 layer: 2)"]
-	1593310080208 [label="/model/layers.2/mlp/act_fn/Mul
+	2320323939632 [label="/model/layers.2/mlp/act_fn/Mul
 (Mul
 layer: 2)"]
-	1593310080256 [label="/model/layers.2/mlp/Mul
+	2320323939680 [label="/model/layers.2/mlp/Mul
 (Mul
 layer: 2)"]
-	1593310080304 [label="/model/layers.2/mlp/down_proj/MatMul_Q4
+	2320323939728 [label="/model/layers.2/mlp/down_proj/MatMul_Q4
 (MatMulNBits
 layer: 2)"]
-	1593310079824 -> 1593310079872
-	1593310079872 -> 1593310079920
-	1593310079920 -> 1593310079968
-	1593310079824 -> 1593310080016
-	1593310079968 -> 1593310080016
-	1593310080016 -> 1593310080064
-	1593310080016 -> 1593310080112
-	1593310080064 -> 1593310080160
-	1593310080064 -> 1593310080208
-	1593310080160 -> 1593310080208
-	1593310080208 -> 1593310080256
-	1593310080112 -> 1593310080256
-	1593310080256 -> 1593310080304
+	2320323939248 -> 2320323939296
+	2320323939296 -> 2320323939344
+	2320323939344 -> 2320323939392
+	2320323939248 -> 2320323939440
+	2320323939392 -> 2320323939440
+	2320323939440 -> 2320323939488
+	2320323939440 -> 2320323939536
+	2320323939488 -> 2320323939584
+	2320323939488 -> 2320323939632
+	2320323939584 -> 2320323939632
+	2320323939632 -> 2320323939680
+	2320323939536 -> 2320323939680
+	2320323939680 -> 2320323939728
 }

@@ -25,94 +25,26 @@ digraph {
 	layer_2_20 [label="layer 20" fillcolor=lightyellow href="layer_20_data_2_detail.svg" shape=box style=filled target=_blank]
 	layer_2_21 [label="layer 21" fillcolor=lightyellow href="layer_21_data_2_detail.svg" shape=box style=filled target=_blank]
 	layer_2_22 [label="layer 22" fillcolor=lightyellow href="layer_22_data_2_detail.svg" shape=box style=filled target=_blank]
-	"layer_2_-1" -> layer_2_0
-	"layer_2_-1" -> layer_2_0
-	"layer_2_-1" -> layer_2_0
-	"layer_2_-1" -> layer_2_0
 	layer_2_0 -> layer_2_1
-	layer_2_0 -> layer_2_1
-	"layer_2_-1" -> layer_2_1
-	"layer_2_-1" -> layer_2_1
 	layer_2_1 -> layer_2_2
-	layer_2_1 -> layer_2_2
-	"layer_2_-1" -> layer_2_2
-	"layer_2_-1" -> layer_2_2
 	layer_2_2 -> layer_2_3
-	layer_2_2 -> layer_2_3
-	"layer_2_-1" -> layer_2_3
-	"layer_2_-1" -> layer_2_3
 	layer_2_3 -> layer_2_4
-	layer_2_3 -> layer_2_4
-	"layer_2_-1" -> layer_2_4
-	"layer_2_-1" -> layer_2_4
 	layer_2_4 -> layer_2_5
-	layer_2_4 -> layer_2_5
-	"layer_2_-1" -> layer_2_5
-	"layer_2_-1" -> layer_2_5
 	layer_2_5 -> layer_2_6
-	layer_2_5 -> layer_2_6
-	"layer_2_-1" -> layer_2_6
-	"layer_2_-1" -> layer_2_6
 	layer_2_6 -> layer_2_7
-	layer_2_6 -> layer_2_7
-	"layer_2_-1" -> layer_2_7
-	"layer_2_-1" -> layer_2_7
 	layer_2_7 -> layer_2_8
-	layer_2_7 -> layer_2_8
-	"layer_2_-1" -> layer_2_8
-	"layer_2_-1" -> layer_2_8
 	layer_2_8 -> layer_2_9
-	layer_2_8 -> layer_2_9
-	"layer_2_-1" -> layer_2_9
-	"layer_2_-1" -> layer_2_9
 	layer_2_9 -> layer_2_10
-	layer_2_9 -> layer_2_10
-	"layer_2_-1" -> layer_2_10
-	"layer_2_-1" -> layer_2_10
 	layer_2_10 -> layer_2_11
-	layer_2_10 -> layer_2_11
-	"layer_2_-1" -> layer_2_11
-	"layer_2_-1" -> layer_2_11
 	layer_2_11 -> layer_2_12
-	layer_2_11 -> layer_2_12
-	"layer_2_-1" -> layer_2_12
-	"layer_2_-1" -> layer_2_12
 	layer_2_12 -> layer_2_13
-	layer_2_12 -> layer_2_13
-	"layer_2_-1" -> layer_2_13
-	"layer_2_-1" -> layer_2_13
 	layer_2_13 -> layer_2_14
-	layer_2_13 -> layer_2_14
-	"layer_2_-1" -> layer_2_14
-	"layer_2_-1" -> layer_2_14
 	layer_2_14 -> layer_2_15
-	layer_2_14 -> layer_2_15
-	"layer_2_-1" -> layer_2_15
-	"layer_2_-1" -> layer_2_15
 	layer_2_15 -> layer_2_16
-	layer_2_15 -> layer_2_16
-	"layer_2_-1" -> layer_2_16
-	"layer_2_-1" -> layer_2_16
 	layer_2_16 -> layer_2_17
-	layer_2_16 -> layer_2_17
-	"layer_2_-1" -> layer_2_17
-	"layer_2_-1" -> layer_2_17
 	layer_2_17 -> layer_2_18
-	layer_2_17 -> layer_2_18
-	"layer_2_-1" -> layer_2_18
-	"layer_2_-1" -> layer_2_18
 	layer_2_18 -> layer_2_19
-	layer_2_18 -> layer_2_19
-	"layer_2_-1" -> layer_2_19
-	"layer_2_-1" -> layer_2_19
 	layer_2_19 -> layer_2_20
-	layer_2_19 -> layer_2_20
-	"layer_2_-1" -> layer_2_20
-	"layer_2_-1" -> layer_2_20
 	layer_2_20 -> layer_2_21
-	layer_2_20 -> layer_2_21
-	"layer_2_-1" -> layer_2_21
-	"layer_2_-1" -> layer_2_21
-	layer_2_21 -> layer_2_22
 	layer_2_21 -> layer_2_22
 }

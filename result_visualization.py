@@ -145,14 +145,19 @@ def create_layered_svg(layer_groups, d_id=0, output_dir="svg_file"):
         save_layer_detail_svg(nodes, layer_idx, d_id, output_dir)
 
     # add global edges between layers
+    added_edges = set()
+
     for target_layer, nodes in layer_groups.items():
         for node in nodes:
             for parent in node.parents:
                 source_layer = getattr(parent, 'layer', -1)
-                if source_layer != target_layer:
-                    src = f"layer_{d_id}_{source_layer}"
-                    tgt = f"layer_{d_id}_{target_layer}"
-                    dot.edge(src, tgt)
+                if source_layer != target_layer and source_layer != -1:  # don't include layer -1
+                    if source_layer != target_layer:
+                        src = f"layer_{d_id}_{source_layer}"
+                        tgt = f"layer_{d_id}_{target_layer}"
+                        if (src, tgt) not in added_edges:
+                            dot.edge(src, tgt)
+                            added_edges.add((src, tgt))
 
     out_path = dot.render(filename=f"{output_dir}/data_{d_id}_detail", view=False)
     print(f"Graph saved as: {output_dir}/data_{d_id}_detail")

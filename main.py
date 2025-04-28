@@ -58,8 +58,6 @@ def main():
         result_visualization.create_layered_svg(layers, d_idx, "svg_file")
 
 
-
-
 if __name__ == "__main__":
     main()
 

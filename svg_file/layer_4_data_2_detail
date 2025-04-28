@@ -1,49 +1,49 @@
 // Layer 4 data 2 Detail
 digraph {
-	1593310196064 [label="/model/layers.4/input_layernorm/SkipLayerNorm
+	2320324026816 [label="/model/layers.4/input_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 4)"]
-	1593310196112 [label="/model/layers.4/attn/qkv_proj/MatMul_Q4
+	2320324026864 [label="/model/layers.4/attn/qkv_proj/MatMul_Q4
 (MatMulNBits
 layer: 4)"]
-	1593310196160 [label="/model/layers.4/attn/GroupQueryAttention
+	2320324026912 [label="/model/layers.4/attn/GroupQueryAttention
 (GroupQueryAttention
 layer: 4)"]
-	1593310196208 [label="/model/layers.4/attn/o_proj/MatMul_Q4
+	2320324026960 [label="/model/layers.4/attn/o_proj/MatMul_Q4
 (MatMulNBits
 layer: 4)"]
-	1593310196256 [label="/model/layers.4/post_attention_layernorm/SkipLayerNorm
+	2320324027008 [label="/model/layers.4/post_attention_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 4)"]
-	1593310196304 [label="/model/layers.4/mlp/gate_proj/MatMul_Q4
+	2320324027056 [label="/model/layers.4/mlp/gate_proj/MatMul_Q4
 (MatMulNBits
 layer: 4)"]
-	1593310196352 [label="/model/layers.4/mlp/up_proj/MatMul_Q4
+	2320324027104 [label="/model/layers.4/mlp/up_proj/MatMul_Q4
 (MatMulNBits
 layer: 4)"]
-	1593310196400 [label="/model/layers.4/mlp/act_fn/Sigmoid
+	2320324027152 [label="/model/layers.4/mlp/act_fn/Sigmoid
 (Sigmoid
 layer: 4)"]
-	1593310196448 [label="/model/layers.4/mlp/act_fn/Mul
+	2320324027200 [label="/model/layers.4/mlp/act_fn/Mul
 (Mul
 layer: 4)"]
-	1593310196496 [label="/model/layers.4/mlp/Mul
+	2320324027248 [label="/model/layers.4/mlp/Mul
 (Mul
 layer: 4)"]
-	1593310196544 [label="/model/layers.4/mlp/down_proj/MatMul_Q4
+	2320324027296 [label="/model/layers.4/mlp/down_proj/MatMul_Q4
 (MatMulNBits
 layer: 4)"]
-	1593310196064 -> 1593310196112
-	1593310196112 -> 1593310196160
-	1593310196160 -> 1593310196208
-	1593310196064 -> 1593310196256
-	1593310196208 -> 1593310196256
-	1593310196256 -> 1593310196304
-	1593310196256 -> 1593310196352
-	1593310196304 -> 1593310196400
-	1593310196304 -> 1593310196448
-	1593310196400 -> 1593310196448
-	1593310196448 -> 1593310196496
-	1593310196352 -> 1593310196496
-	1593310196496 -> 1593310196544
+	2320324026816 -> 2320324026864
+	2320324026864 -> 2320324026912
+	2320324026912 -> 2320324026960
+	2320324026816 -> 2320324027008
+	2320324026960 -> 2320324027008
+	2320324027008 -> 2320324027056
+	2320324027008 -> 2320324027104
+	2320324027056 -> 2320324027152
+	2320324027056 -> 2320324027200
+	2320324027152 -> 2320324027200
+	2320324027200 -> 2320324027248
+	2320324027104 -> 2320324027248
+	2320324027248 -> 2320324027296
 }

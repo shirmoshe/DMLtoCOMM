@@ -1,48 +1,48 @@
 // Layer 0 data 0 Detail
 digraph {
-	1593302349376 [label="/model/layers.0/input_layernorm/LayerNorm
+	2320316200608 [label="/model/layers.0/input_layernorm/LayerNorm
 (SimplifiedLayerNormalization
 layer: 0)"]
-	1593302349328 [label="/model/layers.0/attn/qkv_proj/MatMul_Q4
+	2320316200560 [label="/model/layers.0/attn/qkv_proj/MatMul_Q4
 (MatMulNBits
 layer: 0)"]
-	1593302349472 [label="/model/layers.0/attn/GroupQueryAttention
+	2320316200704 [label="/model/layers.0/attn/GroupQueryAttention
 (GroupQueryAttention
 layer: 0)"]
-	1593302349568 [label="/model/layers.0/attn/o_proj/MatMul_Q4
+	2320316200800 [label="/model/layers.0/attn/o_proj/MatMul_Q4
 (MatMulNBits
 layer: 0)"]
-	1593302349520 [label="/model/layers.0/post_attention_layernorm/SkipLayerNorm
+	2320316200752 [label="/model/layers.0/post_attention_layernorm/SkipLayerNorm
 (SkipSimplifiedLayerNormalization
 layer: 0)"]
-	1593302349664 [label="/model/layers.0/mlp/gate_proj/MatMul_Q4
+	2320316200896 [label="/model/layers.0/mlp/gate_proj/MatMul_Q4
 (MatMulNBits
 layer: 0)"]
-	1593302349616 [label="/model/layers.0/mlp/up_proj/MatMul_Q4
+	2320316200848 [label="/model/layers.0/mlp/up_proj/MatMul_Q4
 (MatMulNBits
 layer: 0)"]
-	1593302442768 [label="/model/layers.0/mlp/act_fn/Sigmoid
+	2320316294000 [label="/model/layers.0/mlp/act_fn/Sigmoid
 (Sigmoid
 layer: 0)"]
-	1593302349184 [label="/model/layers.0/mlp/act_fn/Mul
+	2320316200416 [label="/model/layers.0/mlp/act_fn/Mul
 (Mul
 layer: 0)"]
-	1593310080544 [label="/model/layers.0/mlp/Mul
+	2320323939968 [label="/model/layers.0/mlp/Mul
 (Mul
 layer: 0)"]
-	1593310079296 [label="/model/layers.0/mlp/down_proj/MatMul_Q4
+	2320323938720 [label="/model/layers.0/mlp/down_proj/MatMul_Q4
 (MatMulNBits
 layer: 0)"]
-	1593302349376 -> 1593302349328
-	1593302349328 -> 1593302349472
-	1593302349472 -> 1593302349568
-	1593302349568 -> 1593302349520
-	1593302349520 -> 1593302349664
-	1593302349520 -> 1593302349616
-	1593302349664 -> 1593302442768
-	1593302349664 -> 1593302349184
-	1593302442768 -> 1593302349184
-	1593302349184 -> 1593310080544
-	1593302349616 -> 1593310080544
-	1593310080544 -> 1593310079296
+	2320316200608 -> 2320316200560
+	2320316200560 -> 2320316200704
+	2320316200704 -> 2320316200800
+	2320316200800 -> 2320316200752
+	2320316200752 -> 2320316200896
+	2320316200752 -> 2320316200848
+	2320316200896 -> 2320316294000
+	2320316200896 -> 2320316200416
+	2320316294000 -> 2320316200416
+	2320316200416 -> 2320323939968
+	2320316200848 -> 2320323939968
+	2320323939968 -> 2320323938720
 }
