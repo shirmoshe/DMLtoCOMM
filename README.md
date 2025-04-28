@@ -5,7 +5,7 @@ This project provides an automatic system for generating and visualizing task gr
 
 ---
 
-## 📋 Project Overview
+##  Project Overview
 
 The system:
 - Parses an ONNX model into operator nodes.
@@ -19,18 +19,18 @@ The system:
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
-| File/Folder | Description |
-|:------------|:------------|
+| File/Folder | Description                                                                       |
+|:------------|:----------------------------------------------------------------------------------|
 | `main.py` | Main entry point for model loading, parallelism configuration, and visualization. |
-| `onnx_analyze.py` | Loads ONNX models and builds initial operator graphs. |
-| `class_Node.py` | Defines the `Node` class representing each operator. |
-| `class_GPU.py` | Defines the `GPU` class representing GPU topology (d, p, t coordinates). |
-| `data_parllel.py` | Handles data parallel replication and collective operations. |
-| `pipeline_parallel.py` | Handles pipeline splitting, GPU connections, and mini-graphs. |
-| `result_visualization.py` | Creates SVG graphs for stages, layers, and GPU communication. |
-| `svg_file/` | Output folder containing generated SVG files. |
+| `onnx_analyze.py` | Loads ONNX models and builds initial operator graphs.                             |
+| `class_Node.py` | Defines the `Node` class representing each operator.                              |
+| `class_GPU.py` | Defines the `GPU` class representing GPU topology (d, p, t coordinates).          |
+| `data_parllel.py` | Handles data parallel replication and collective operations.                      |
+| `pipeline_parallel.py` | Handles pipeline splitting, send_recv ops.                                        |
+| `result_visualization.py` | Creates SVG graphs for stages, layers, and GPU communication.                     |
+| `svg_file/` | Output folder containing generated SVG files.                                     |
 
 ---
 
