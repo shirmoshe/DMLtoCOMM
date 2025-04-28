@@ -1,9 +1,9 @@
 
 class GPU:
-    def __init__(self, gpu_id):
-        self.id = gpu_id  # GPU ID (integer)
-        self.d_id = 0
-        self.t_id = 0
-        self.p_id = 0
+    def __init__(self, p, t, d, id=0):
+        self.id = id  # GPU ID (integer)
+        self.d = d
+        self.t = t
+        self.p = p
 
 

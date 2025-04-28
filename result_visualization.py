@@ -181,3 +181,106 @@ def save_layer_detail_svg(layer_nodes, layer_idx, d_id, output_dir="svg_file"):
     filename = f"{output_dir}/layer_{layer_idx}_data_{d_id}_detail"
     dot.render(filename=filename, view=False)
     print(f"Graph saved as: {filename}.svg")
+
+
+def create_stage_graph(stages, d_id=0, output_dir="svg_file"):
+    """
+    Create SVG showing pipeline stages inside a data replica.
+
+    Args:
+        stages (dict): {stage_id: {layer_id: [Nodes]}}
+        d_id (int): data parallel id
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    dot = Digraph(comment=f"Pipeline Stages for data {d_id}", format='svg')
+    dot.attr(rankdir='TB', compound='true')
+
+    # create stages
+    for stage_id in stages:
+        stage_box = f"stage_{d_id}_{stage_id}"
+        label = f"Stage {stage_id}"
+        href = f"stage_{stage_id}_data_{d_id}_detail.svg"
+        dot.node(stage_box, label=label, shape="box3d", style="filled", fillcolor="lightblue", href=href,
+                 target="_blank")
+
+    # add send-recv box
+    stage_ids = sorted(stages.keys())
+    for i in range(len(stage_ids) - 1):
+        sendrecv_box = f"sendrecv_{d_id}_{i}_to_{i + 1}"
+        label = f"Send-Recv\nStage {i} → Stage {i + 1}"
+        href = f"send_recv_stage_{i}_to_{i + 1}_data_{d_id}_detail.svg"
+        dot.node(sendrecv_box, label=label, shape="oval", style="filled", fillcolor="lightgreen", href=href,
+                 target="_blank")
+
+        src = f"stage_{d_id}_{stage_ids[i]}"
+        tgt = f"stage_{d_id}_{stage_ids[i + 1]}"
+
+        dot.edge(src, sendrecv_box)
+        dot.edge(sendrecv_box, tgt)
+
+    out_path = dot.render(f"{output_dir}/data_{d_id}_detail", view=False)
+    print(f"Stage graph saved as: {out_path}")
+
+
+def create_layer_graph(stage_layers, stage_id, d_id=0, output_dir="svg_file"):
+    """
+    Create SVG showing layers inside a pipeline stage.
+
+    Args:
+        stage_layers (dict): {layer_id: [Nodes]}.
+        stage_id (int): Pipeline stage index.
+        d_id (int): Data replica index.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    dot = Digraph(comment=f"Layers in Stage {stage_id} for data {d_id}", format='svg')
+    dot.attr(rankdir='TB', compound='true')
+
+    # create layer box
+    for layer_idx in stage_layers:
+        box_id = f"layer_{d_id}_{layer_idx}"
+        label = f"Layer {layer_idx}"
+        href = f"layer_{layer_idx}_data_{d_id}_detail.svg"
+        dot.node(box_id, label=label, shape="box", style="filled", fillcolor="lightyellow", href=href, target="_blank")
+
+    # add edges
+    sorted_layers = sorted(stage_layers.keys())
+    for i in range(len(sorted_layers) - 1):
+        src = f"layer_{d_id}_{sorted_layers[i]}"
+        tgt = f"layer_{d_id}_{sorted_layers[i + 1]}"
+        dot.edge(src, tgt)
+
+    out_path = dot.render(f"{output_dir}/stage_{stage_id}_data_{d_id}_detail", view=False)
+    print(f"Layer graph saved as: {out_path}")
+
+
+def create_send_recv_gpu_graph(connections, source_stage, dest_stage, d_id=0, output_dir="svg_file"):
+    """
+    Create SVG graph showing GPU communication between two stages.
+
+    Args:
+        connections (list of tuples): Each tuple is (src_gpu, dst_gpu), both are GPU objects.
+        source_stage (int): Source stage id.
+        dest_stage (int): Destination stage id.
+        d_id (int): Data parallel id.
+        output_dir (str): Directory to save the SVG file.
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    dot = Digraph(comment=f"GPU Communication d={d_id} from stage {source_stage} to {dest_stage}", format='svg')
+    dot.attr(rankdir='LR', compound='true')  # Left to Right flow
+
+    # 1. Add all source and destination GPUs as nodes
+    for src_gpu, dst_gpu in connections:
+        src_label = f"GPU({src_gpu.p},{src_gpu.t},{src_gpu.d})"
+        dst_label = f"GPU({dst_gpu.p},{dst_gpu.t},{dst_gpu.d})"
+
+        dot.node(f"src_{id(src_gpu)}", label=src_label, shape="box", style="filled", fillcolor="lightblue")
+        dot.node(f"dst_{id(dst_gpu)}", label=dst_label, shape="box", style="filled", fillcolor="lightyellow")
+
+    # 2. Add edges
+    for src_gpu, dst_gpu in connections:
+        dot.edge(f"src_{id(src_gpu)}", f"dst_{id(dst_gpu)}")
+
+    # 3. Render
+    filename = f"send_recv_stage_{source_stage}_to_{dest_stage}_data_{d_id}_detail"
+    out_path = dot.render(filename=f"{output_dir}/{filename}", view=False)
+    print(f"Send Receive GPU graph saved as: {out_path}")

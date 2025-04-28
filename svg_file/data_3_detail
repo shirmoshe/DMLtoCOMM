@@ -1,50 +1,20 @@
-// Layered Graph for data replica 3
+// Pipeline Stages for data 3
 digraph {
 	compound=true rankdir=TB
-	"layer_3_-1" [label="layer -1" fillcolor=lightyellow href="layer_-1_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_0 [label="layer 0" fillcolor=lightyellow href="layer_0_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_1 [label="layer 1" fillcolor=lightyellow href="layer_1_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_2 [label="layer 2" fillcolor=lightyellow href="layer_2_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_3 [label="layer 3" fillcolor=lightyellow href="layer_3_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_4 [label="layer 4" fillcolor=lightyellow href="layer_4_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_5 [label="layer 5" fillcolor=lightyellow href="layer_5_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_6 [label="layer 6" fillcolor=lightyellow href="layer_6_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_7 [label="layer 7" fillcolor=lightyellow href="layer_7_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_8 [label="layer 8" fillcolor=lightyellow href="layer_8_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_9 [label="layer 9" fillcolor=lightyellow href="layer_9_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_10 [label="layer 10" fillcolor=lightyellow href="layer_10_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_11 [label="layer 11" fillcolor=lightyellow href="layer_11_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_12 [label="layer 12" fillcolor=lightyellow href="layer_12_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_13 [label="layer 13" fillcolor=lightyellow href="layer_13_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_14 [label="layer 14" fillcolor=lightyellow href="layer_14_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_15 [label="layer 15" fillcolor=lightyellow href="layer_15_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_16 [label="layer 16" fillcolor=lightyellow href="layer_16_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_17 [label="layer 17" fillcolor=lightyellow href="layer_17_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_18 [label="layer 18" fillcolor=lightyellow href="layer_18_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_19 [label="layer 19" fillcolor=lightyellow href="layer_19_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_20 [label="layer 20" fillcolor=lightyellow href="layer_20_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_21 [label="layer 21" fillcolor=lightyellow href="layer_21_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_22 [label="layer 22" fillcolor=lightyellow href="layer_22_data_3_detail.svg" shape=box style=filled target=_blank]
-	layer_3_0 -> layer_3_1
-	layer_3_1 -> layer_3_2
-	layer_3_2 -> layer_3_3
-	layer_3_3 -> layer_3_4
-	layer_3_4 -> layer_3_5
-	layer_3_5 -> layer_3_6
-	layer_3_6 -> layer_3_7
-	layer_3_7 -> layer_3_8
-	layer_3_8 -> layer_3_9
-	layer_3_9 -> layer_3_10
-	layer_3_10 -> layer_3_11
-	layer_3_11 -> layer_3_12
-	layer_3_12 -> layer_3_13
-	layer_3_13 -> layer_3_14
-	layer_3_14 -> layer_3_15
-	layer_3_15 -> layer_3_16
-	layer_3_16 -> layer_3_17
-	layer_3_17 -> layer_3_18
-	layer_3_18 -> layer_3_19
-	layer_3_19 -> layer_3_20
-	layer_3_20 -> layer_3_21
-	layer_3_21 -> layer_3_22
+	stage_3_0 [label="Stage 0" fillcolor=lightblue href="stage_0_data_3_detail.svg" shape=box3d style=filled target=_blank]
+	stage_3_1 [label="Stage 1" fillcolor=lightblue href="stage_1_data_3_detail.svg" shape=box3d style=filled target=_blank]
+	stage_3_2 [label="Stage 2" fillcolor=lightblue href="stage_2_data_3_detail.svg" shape=box3d style=filled target=_blank]
+	stage_3_3 [label="Stage 3" fillcolor=lightblue href="stage_3_data_3_detail.svg" shape=box3d style=filled target=_blank]
+	sendrecv_3_0_to_1 [label="Send-Recv
+Stage 0 → Stage 1" fillcolor=lightgreen href="send_recv_stage_0_to_1_data_3_detail.svg" shape=oval style=filled target=_blank]
+	stage_3_0 -> sendrecv_3_0_to_1
+	sendrecv_3_0_to_1 -> stage_3_1
+	sendrecv_3_1_to_2 [label="Send-Recv
+Stage 1 → Stage 2" fillcolor=lightgreen href="send_recv_stage_1_to_2_data_3_detail.svg" shape=oval style=filled target=_blank]
+	stage_3_1 -> sendrecv_3_1_to_2
+	sendrecv_3_1_to_2 -> stage_3_2
+	sendrecv_3_2_to_3 [label="Send-Recv
+Stage 2 → Stage 3" fillcolor=lightgreen href="send_recv_stage_2_to_3_data_3_detail.svg" shape=oval style=filled target=_blank]
+	stage_3_2 -> sendrecv_3_2_to_3
+	sendrecv_3_2_to_3 -> stage_3_3
 }

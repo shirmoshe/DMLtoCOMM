@@ -1,0 +1,10 @@
+// GPU Communication d=1 from stage 2 to 3
+digraph {
+	compound=true rankdir=LR
+	src_2776348995648 [label="GPU(2,0,1)" fillcolor=lightblue shape=box style=filled]
+	dst_2774549278144 [label="GPU(3,0,1)" fillcolor=lightyellow shape=box style=filled]
+	src_2774549278096 [label="GPU(2,1,1)" fillcolor=lightblue shape=box style=filled]
+	dst_2774549278432 [label="GPU(3,1,1)" fillcolor=lightyellow shape=box style=filled]
+	src_2776348995648 -> dst_2774549278144
+	src_2774549278096 -> dst_2774549278432
+}

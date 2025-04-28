@@ -3,6 +3,7 @@ import class_Node
 import result_visualization
 from class_Node import Node
 from collections import defaultdict
+from class_GPU import GPU
 
 
 def create_pipeline_stages(layers_dict, p):
@@ -25,14 +26,14 @@ def create_pipeline_stages(layers_dict, p):
     layers_per_stage = total_layers // p
     extra_layers = total_layers % p
 
-    stages = {}
-
     # 3. Assign layers to stages
+    stages = {}
+    layer_idx = 0
     for stage_id in range(p):
         stage_layers = {}
 
         num_layers_in_stage = layers_per_stage + (1 if stage_id < extra_layers else 0)  # add extra layer
-        for layer_idx in range(num_layers_in_stage):
+        for _ in range(num_layers_in_stage):
             if layer_idx < total_layers:
                 layer_num, nodes = sorted_layers[layer_idx]
                 stage_layers[layer_num] = nodes
@@ -40,7 +41,33 @@ def create_pipeline_stages(layers_dict, p):
 
         stages[stage_id] = stage_layers
 
+    print("\n**********************************\nPipeline Stage Split:")
+    for stage_id, layer_dict in stages.items():
+        layers_in_stage = list(layer_dict.keys())
+        print(f"Stage {stage_id}: Layers {layers_in_stage}")
+
     return stages
 
 
+def create_send_recv_group(d_id, source_stage, dest_stage, t):
+    """
+    Create a list of GPU objects representing communication between two stages.
+
+    Args:
+        d_id (int): Data parallel index (fixed for this operation).
+        source_stage (int): Source pipeline stage index.
+        dest_stage (int): Destination pipeline stage index.
+        t (int): Tensor parallel size.
+
+    Returns:
+        List of tuples: (source_gpu, destination_gpu)
+    """
+    connections = []
+
+    for tensor_idx in range(t):
+        src_gpu = GPU(source_stage, tensor_idx, d_id)
+        dst_gpu = GPU(dest_stage,  tensor_idx, d_id)
+        connections.append((src_gpu, dst_gpu))
+
+    return connections
 
