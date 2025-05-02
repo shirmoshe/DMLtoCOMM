@@ -40,6 +40,23 @@ def main():
                          f"d={d}, t={t}, p={p}, but total_gpu={total_gpu}. "
                          f"Expected: d * t * p = {d * t * p}")
 
+
+
+    # check parameters
+    from collections import defaultdict
+
+    def print_ops_by_layer(nodes_list):
+        layer_ops = defaultdict(list)
+        for node in nodes_list:
+            layer = node.layer
+            layer_ops[layer].append(node.op_type)
+
+        for layer in sorted(layer_ops.keys()):
+            print(f"\nlayer {layer}:")
+            for op in layer_ops[layer]:
+                print(f"  - {op}")
+
+
     # Create topology
   #  topology = Topology(topology_type, total_gpu)
   #  topology.add_GPU(d, t, p)
@@ -47,7 +64,7 @@ def main():
     # Create Node objects and build the hierarchy
     nodes_list = onnx_analyze.create_nodes(onnx_model)
     layers = onnx_analyze.group_layer(nodes_list)
-
+    print_ops_by_layer(nodes_list=nodes_list)
     # ============================ DATA PARALLELISM ============================ #
     data_parllel.create_data_parallel(nodes_list, d, data_size)
 

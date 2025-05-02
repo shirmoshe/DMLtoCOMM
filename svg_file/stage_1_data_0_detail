@@ -1,15 +1,13 @@
 // Layers in Stage 1 for data 0
 digraph {
 	compound=true rankdir=TB
+	layer_0_5 [label="Layer 5" fillcolor=lightyellow href="layer_5_data_0_detail.svg" shape=box style=filled target=_blank]
 	layer_0_6 [label="Layer 6" fillcolor=lightyellow href="layer_6_data_0_detail.svg" shape=box style=filled target=_blank]
 	layer_0_7 [label="Layer 7" fillcolor=lightyellow href="layer_7_data_0_detail.svg" shape=box style=filled target=_blank]
 	layer_0_8 [label="Layer 8" fillcolor=lightyellow href="layer_8_data_0_detail.svg" shape=box style=filled target=_blank]
 	layer_0_9 [label="Layer 9" fillcolor=lightyellow href="layer_9_data_0_detail.svg" shape=box style=filled target=_blank]
-	layer_0_10 [label="Layer 10" fillcolor=lightyellow href="layer_10_data_0_detail.svg" shape=box style=filled target=_blank]
-	layer_0_11 [label="Layer 11" fillcolor=lightyellow href="layer_11_data_0_detail.svg" shape=box style=filled target=_blank]
+	layer_0_5 -> layer_0_6
 	layer_0_6 -> layer_0_7
 	layer_0_7 -> layer_0_8
 	layer_0_8 -> layer_0_9
-	layer_0_9 -> layer_0_10
-	layer_0_10 -> layer_0_11
 }

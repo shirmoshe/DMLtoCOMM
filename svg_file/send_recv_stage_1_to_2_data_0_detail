@@ -1,10 +1,13 @@
 // GPU Communication d=0 from stage 1 to 2
 digraph {
 	compound=true rankdir=LR
-	src_2019832334848 [label="GPU(1,0,0)" fillcolor=lightblue shape=box style=filled]
-	dst_2019824486000 [label="GPU(2,0,0)" fillcolor=lightyellow shape=box style=filled]
-	src_2019824485760 [label="GPU(1,1,0)" fillcolor=lightblue shape=box style=filled]
-	dst_2019824485856 [label="GPU(2,1,0)" fillcolor=lightyellow shape=box style=filled]
-	src_2019832334848 -> dst_2019824486000
-	src_2019824485760 -> dst_2019824485856
+	src_3189349088800 [label="GPU(1,0,0)" fillcolor=lightblue shape=box style=filled]
+	dst_3189349089088 [label="GPU(2,0,0)" fillcolor=lightyellow shape=box style=filled]
+	src_3189349088608 [label="GPU(1,1,0)" fillcolor=lightblue shape=box style=filled]
+	dst_3189368079408 [label="GPU(2,1,0)" fillcolor=lightyellow shape=box style=filled]
+	src_3189368079072 [label="GPU(1,2,0)" fillcolor=lightblue shape=box style=filled]
+	dst_3189368078784 [label="GPU(2,2,0)" fillcolor=lightyellow shape=box style=filled]
+	src_3189349088800 -> dst_3189349089088
+	src_3189349088608 -> dst_3189368079408
+	src_3189368079072 -> dst_3189368078784
 }

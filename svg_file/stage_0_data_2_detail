@@ -6,10 +6,8 @@ digraph {
 	layer_2_2 [label="Layer 2" fillcolor=lightyellow href="layer_2_data_2_detail.svg" shape=box style=filled target=_blank]
 	layer_2_3 [label="Layer 3" fillcolor=lightyellow href="layer_3_data_2_detail.svg" shape=box style=filled target=_blank]
 	layer_2_4 [label="Layer 4" fillcolor=lightyellow href="layer_4_data_2_detail.svg" shape=box style=filled target=_blank]
-	layer_2_5 [label="Layer 5" fillcolor=lightyellow href="layer_5_data_2_detail.svg" shape=box style=filled target=_blank]
 	layer_2_0 -> layer_2_1
 	layer_2_1 -> layer_2_2
 	layer_2_2 -> layer_2_3
 	layer_2_3 -> layer_2_4
-	layer_2_4 -> layer_2_5
 }

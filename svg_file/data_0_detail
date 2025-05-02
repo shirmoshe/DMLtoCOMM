@@ -5,6 +5,7 @@ digraph {
 	stage_0_1 [label="Stage 1" fillcolor=lightblue href="stage_1_data_0_detail.svg" shape=box3d style=filled target=_blank]
 	stage_0_2 [label="Stage 2" fillcolor=lightblue href="stage_2_data_0_detail.svg" shape=box3d style=filled target=_blank]
 	stage_0_3 [label="Stage 3" fillcolor=lightblue href="stage_3_data_0_detail.svg" shape=box3d style=filled target=_blank]
+	stage_0_4 [label="Stage 4" fillcolor=lightblue href="stage_4_data_0_detail.svg" shape=box3d style=filled target=_blank]
 	sendrecv_0_0_to_1 [label="Send-Recv
 Stage 0 → Stage 1" fillcolor=lightgreen href="send_recv_stage_0_to_1_data_0_detail.svg" shape=oval style=filled target=_blank]
 	stage_0_0 -> sendrecv_0_0_to_1
@@ -17,4 +18,8 @@ Stage 1 → Stage 2" fillcolor=lightgreen href="send_recv_stage_1_to_2_data_0_de
 Stage 2 → Stage 3" fillcolor=lightgreen href="send_recv_stage_2_to_3_data_0_detail.svg" shape=oval style=filled target=_blank]
 	stage_0_2 -> sendrecv_0_2_to_3
 	sendrecv_0_2_to_3 -> stage_0_3
+	sendrecv_0_3_to_4 [label="Send-Recv
+Stage 3 → Stage 4" fillcolor=lightgreen href="send_recv_stage_3_to_4_data_0_detail.svg" shape=oval style=filled target=_blank]
+	stage_0_3 -> sendrecv_0_3_to_4
+	sendrecv_0_3_to_4 -> stage_0_4
 }

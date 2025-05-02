@@ -1,13 +1,13 @@
 {
   "parallelism": {
-    "data_parallel_size": 4,
-    "pipeline_parallel_size": 4,
-    "tensor_parallel_size": 2
+    "data_parallel_size": 3,
+    "pipeline_parallel_size": 5,
+    "tensor_parallel_size": 3
   },
   "topology": {
     "__comment": "type can be: full_mesh, fat_tree",
     "type": "full_mesh",
-    "num_gpus": 32,
+    "num_gpus": 45,
     "link_latency_ms": 0,
     "bandwidth_gbps": 0
   },
