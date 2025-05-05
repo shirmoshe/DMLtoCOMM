@@ -15,12 +15,15 @@ def main():
 
     # ============================ INITIALIZATION ============================ #
     #model_path = "imagenet/resnet50-v1-7.onnx"  # replace with model path
-    model_path = r"C:\Users\shirm\PycharmProjects\Project\load_model\tiny_llama_model\tiny_llama.onnx"  # replace with model path
+
+    project_root = os.path.dirname(os.path.abspath(__file__))
+
+    model_path = os.path.join(project_root, "load_model", "tiny_llama_model", "tiny_llama.onnx")
+    json_path = os.path.join(project_root, "load_model", "code_files", "user_inputs.json")
     onnx_model = onnx_analyze.load_model(model_path)  # load the ONNX model
 
     os.makedirs("svg_file", exist_ok=True)     # make folder for the svg file
 
-    json_path = r"C:\Users\shirm\PycharmProjects\Project\load_model\code_files\user_inputs.json"      # load user inputs json file
     with open(json_path, 'r') as f:
         config = json.load(f)
 
