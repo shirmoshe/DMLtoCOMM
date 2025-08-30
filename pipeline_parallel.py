@@ -1,84 +1,131 @@
-import onnx_analyze
-import class_Node
-import result_visualization
+
+from typing import List
 from class_Node import Node
-from collections import defaultdict
-from class_GPU import GPU
+from typing import List, Tuple, Dict
 
 
-def create_pipeline_stages(layers_dict, p):
+def assign_pipeline_stages(nodes_list: List[Node], p: int) -> List[Node]:
     """
-    Split model layers into p pipeline stages.
+    Assign pipeline stage IDs (1..p) by slicing the model's layers into p consecutive groups, using -1 for undefined layers.
+    Each stage corresponds to a contiguous block of layers.
 
     Args:
-        layers_dict (dict): {layer_index: list of Node}.
-        p (int): Number of pipeline stages.
+        nodes_list (List[Node]): Flat list of Node instances with .layer set.
+        p (int): Total number of pipeline stages.
 
     Returns:
-        dict: {stage_index: {layer_index: list of Node}}
+        List[Node]: The same list with each node.id_p set to 0..p-1, or -1 if layer<0.
     """
+    # Collect sorted unique layers (ignore negative)
+    layers = sorted({n.layer for n in nodes_list if n.layer >= 0})
+    total_layers = len(layers)
 
-    # 1. Remove layer -1 (constant nodes etc.)
-    layers_dict = {k: v for k, v in layers_dict.items() if k != -1}
+    # If no valid layers, mark all nodes as undefined
+    if total_layers == 0:
+        for n in nodes_list:
+            n.id_p = -1
+        return nodes_list
 
-    sorted_layers = sorted(layers_dict.items())
-    total_layers = len(sorted_layers)
-    layers_per_stage = total_layers // p
-    extra_layers = total_layers % p
+    # Validate stage count
+    if p <= 0:
+        raise ValueError("Number of pipeline stages p must be positive")
 
-    # 3. Assign layers to stages
-    stages = {}
-    layer_idx = 0
-    for stage_id in range(p):
-        stage_layers = {}
+    # Compute base number of layers per stage and extra remainder
+    base, extra = divmod(total_layers, p)
 
-        num_layers_in_stage = layers_per_stage + (1 if stage_id < extra_layers else 0)  # add extra layer
-        for _ in range(num_layers_in_stage):
-            if layer_idx < total_layers:
-                layer_num, nodes = sorted_layers[layer_idx]
-                stage_layers[layer_num] = nodes
-                layer_idx += 1
+    # Build a flat list mapping each layer index to a 1-based stage ID
+    stage_map: List[int] = []
+    for stage_idx in range(p):
+        count = base + (1 if stage_idx < extra else 0)
+        # stage_idx + 1 gives a 1-based stage number
+        stage_map.extend([stage_idx + 1] * count)
 
-        stages[stage_id] = stage_layers
+    # Map each actual layer value to its assigned 1-based stage
+    layer_to_stage = {layers[i]: stage_map[i] for i in range(total_layers)}
 
-    print("\n**********************************\nPipeline Stage Split:")
-    for stage_id, layer_dict in stages.items():
-        layers_in_stage = list(layer_dict.keys())
-        print(f"Stage {stage_id}: Layers {layers_in_stage}")
+    # Assign stage ID to each node
+    for n in nodes_list:
+        n.id_p = layer_to_stage.get(n.layer, -1)
+        if n.node_type == "collective" and n.name in ("READ_DATA", "AllReduceGrad"):
+            n.id_p = 0
 
-    return stages
+    return nodes_list
 
-
-def create_send_recv_group(d_id, source_stage, dest_stage, t):
+def insert_pipeline_p2ps(nodes_list: List[Node]) -> List[Node]:
     """
-    Create a list of GPU objects representing communication between two stages.
-
-    Args:
-        d_id (int): Data parallel index (fixed for this operation).
-        source_stage (int): Source pipeline stage index.
-        dest_stage (int): Destination pipeline stage index.
-        t (int): Tensor parallel size.
-
-    Returns:
-        List of tuples: (source_gpu, destination_gpu)
+    Insert at most one P2P node between each (parent.id_p, child.id_p, id_d, id_t) group.
+    Each P2P is merged across all parents for the same stage transition.
     """
-    connections = []
+    new_nodes = []
+    p2p_map = {}  # key: (parent.id_p, child.id_p, id_d, id_t), value: p2p_node
 
-    for tensor_idx in range(t):
-        src_gpu = GPU(source_stage, tensor_idx, d_id)
-        dst_gpu = GPU(dest_stage,  tensor_idx, d_id)
-        connections.append((src_gpu, dst_gpu))
+    for child in nodes_list:
+        new_parents = []
+        # Build mapping from (src stage) -> [parents]
+        parent_stage_map = {}
+        for parent in child.parents:
+            if 0 < parent.id_p != child.id_p > 0:
 
-    return connections
+                key = (parent.id_p, child.id_p, child.id_d, child.id_t, parent.layer)
+                parent_stage_map.setdefault(key, []).append(parent)
+            else:
+                new_parents.append(parent)
+        # For each stage transition, create or reuse P2P
+        for key, parent_list in parent_stage_map.items():
+            (p_src, p_dst, id_d, id_t, p_layer) = key
+            if key not in p2p_map:
+                p2p = Node(
+                    name=f"P2P stage {p_src} to stage {p_dst}",
+                    op_type="P2P",
+                    layer= p_layer,)
+                p2p.node_type = "P2P"
+                p2p.id_d = id_d
+                p2p.id_t = id_t
+                p2p.id_p = p_dst
+                p2p.p_src = p_src
+                p2p.p_dst = p_dst
+                p2p.parents = parent_list.copy()
+                p2p.children = [child]
+                new_nodes.append(p2p)
+                p2p_map[key] = p2p
+                # Update parent's children to point to P2P instead of child
+                for parent in parent_list:
+                    if child in parent.children:
+                        parent.children = [p2p if c is child else c for c in parent.children]
+                    else:
+                        parent.children.append(p2p)
+            else:
+                p2p = p2p_map[key]
+                for parent in parent_list:
+                    if parent not in p2p.parents:
+                        p2p.parents.append(parent)
+                    if child in parent.children:
+                        parent.children = [p2p if c is child else c for c in parent.children]
+                    else:
+                        parent.children.append(p2p)
+                if child not in p2p.children:
+                    p2p.children.append(child)
+            # Replace all such parents in the child's parent list with the P2P node
+            # (if multiple, only once!)
+            if p2p not in new_parents:
+                new_parents.append(p2p)
+        child.parents = new_parents
 
+    #print(f"Total merged P2P nodes inserted: {len(new_nodes)}")
+    return nodes_list + new_nodes
 
-def create_pipeline_parallel(d, p, t, layers):
-    for d_idx in range(d):
-        stage_mapping = create_pipeline_stages(layers, p)
-        result_visualization.create_stage_graph(stage_mapping, d_id=d_idx, output_dir="svg_file")
+def apply_pipeline_parallel(nodes_list: List[Node], p: int) -> List[Node]:
+    """
+    Full pipeline-parallel pass: assign stage IDs then insert P2P nodes.
+    """
+    # assign id_p based on existing .layer values
+    staged = assign_pipeline_stages(nodes_list, p)
+    # insert P2P send/recv at boundaries
 
-        for stage_id, stage_layers in stage_mapping.items():
-            result_visualization.create_layer_graph(stage_layers, stage_id=stage_id, d_id=d_idx, output_dir="svg_file")
+    #fix data paralel nodes #patch
+    for n in staged:
+        if "READ_DATA" in n.name or "AllReduceGrad" in n.name:
+            n.id_p = 0
+            #print(n.name + " p is now 0)")
+    return insert_pipeline_p2ps(staged)
 
-            connections = create_send_recv_group(d_idx, source_stage=stage_id, dest_stage=stage_id+1, t=t)
-            result_visualization.create_send_recv_gpu_graph(connections, source_stage=stage_id, dest_stage=stage_id+1, d_id = d_idx)

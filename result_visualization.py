@@ -5,7 +5,7 @@ import webbrowser
 from graphviz import Digraph
 import webbrowser
 from collections import defaultdict
-import data_parllel
+import data_parallel
 import os
 
 
