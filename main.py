@@ -16,22 +16,37 @@ from typing import List
 global d, t, p, total_gpu
 
 def main():
+
+
+
     # ------------------ INITIALIZATION ------------------
     project_root = os.path.dirname(os.path.abspath(__file__))
     model_path   = os.path.join(project_root, "load_model", "tiny_llama_model", "tiny_llama.onnx")
     json_path    = os.path.join(project_root, "load_model", "code_files", "user_inputs.json")
 
-    onnx_model   = onnx_analyze.load_model(model_path)
+
+    onnx_model = onnx_analyze.load_model(model_path)
     config       = onnx_analyze.load_config(json_path)
     data_size    = onnx_analyze.get_model_data_size(config)
 
-    total_gpu    = 24
-    bandwidth    = 10_000_000_000        # bytes/sec
-    flop_rate    = 1_000_000_000_000       # FLOPS
-    beta         = 1 / bandwidth
-    N = 64000 # its the data sampels
-    num_mirco_batches_per_batch = 4 # micro-batches accumulated per batch
-    batch_size = 64   # Batch size – number of independent sequences processed together in one forward / backward pass.
+    # #validate paths
+    # print("Loaded config:", config)
+    # print("Topology keys:", config.get("topology", {}).keys())
+
+    # visualization
+    show_config_tree = tuple(config["visualization"]["show_config_tree"])
+
+    # topology & hardware
+    total_gpu        = config["topology"]["total_gpu"]
+    bandwidth   = config["topology"]["bandwidth_gbps"]
+    beta             = 1 / bandwidth
+    flop_rate        = config["hardware"]["flop_rate"]
+
+    # training
+    N = config["training"]["dataset_size"]
+    batch_size = config["training"]["global_batch_size"]
+    num_mirco_batches_per_batch = config["training"]["micro_batches_per_batch"]
+
     num_of_batches = math.ceil((N / batch_size))
     #b = B // num_mirco_batches_per_batch #micro-batch size
     mirco_batch_size = batch_size // num_mirco_batches_per_batch
@@ -51,12 +66,12 @@ def main():
 
     # ------------------ ANALYZE EACH CONFIG ------------------
     for d, t, p in get_all_parallel_configs(total_gpu, min_t, max_p):  # d,t,p are  DP / TP / PP degrees per configuration
-        #print( f"[DEBUG:] get_all_parallel_configs d={d}, t={t}, p={p}******************")
+
         # 1) build fresh tree
         nodes = onnx_analyze.create_nodes(onnx_model)
         nodes = clear_nodes_list_redundancy(nodes)
         nodes = clear_nodes_names(nodes)
-        nodes_copy, main_root = data_parallel.apply_data_parallel(nodes.copy(), data_size, d)
+        nodes_copy, main_root = data_parallel.apply_data_parallel(nodes.copy(), N, d)
         nodes_copy           = pipeline_parallel.apply_pipeline_parallel(nodes_copy, p)
         nodes_copy           = tensor_parallel.apply_tensor_parallel(nodes_copy)
 
@@ -87,6 +102,9 @@ def main():
 
         cur_comm_time = main_root.all_comm_time(d, t, p, beta, num_mirco_batches_per_batch,
                                                 batch_size) * num_rounds
+
+        if (d, p, t) == show_config_tree:
+            visualization.visualize_tree_dot(main_root, *show_config_tree)
 
         print(f"cfg={[d, t, p]}  transfer={cur_data_transfer}  comm={cur_comm_time:.5f}s  compute={cur_comp_time:.5f}s")
         results.append({
