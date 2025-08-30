@@ -20,14 +20,20 @@ def main():
 
 
     # ------------------ INITIALIZATION ------------------
+
     project_root = os.path.dirname(os.path.abspath(__file__))
-    model_path   = os.path.join(project_root, "load_model", "tiny_llama_model", "tiny_llama.onnx")
-    json_path    = os.path.join(project_root, "load_model", "code_files", "user_inputs.json")
+    json_path = os.path.join(project_root, "load_model", "code_files", "user_inputs.json")
 
+    # load full config dict once
+    config = onnx_analyze.load_config(json_path)
 
+    # resolve paths directly from config["paths"]
+    model_path = os.path.join(project_root, config["paths"]["model_onnx"])
+    output_json_path = os.path.join(project_root, config["paths"]["frontend_data_json"])
+    svg_out_dir = os.path.join(project_root, config["paths"]["svg_out_dir"])
+
+    # load model from resolved path
     onnx_model = onnx_analyze.load_model(model_path)
-    config       = onnx_analyze.load_config(json_path)
-    data_size    = onnx_analyze.get_model_data_size(config)
 
     # #validate paths
     # print("Loaded config:", config)
