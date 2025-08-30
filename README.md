@@ -1,5 +1,5 @@
 # DML to COMM - Automated Distributed Machine Learning Communication Trace Generation
-sThis project statically analyzes an ONNX model and a chosen parallelism configuration [d, t, p] (data, tensor, pipeline) to estimate communication volume, communication time, and compute time—without running training.
+This project statically analyzes an ONNX model and a chosen parallelism configuration [d, t, p] (data, tensor, pipeline) to estimate communication volume, communication time, and compute time—without actual running a training.
 It then writes the results to frontend/public/data.json, which a React app visualizes (tables + charts).
 
 ---
@@ -19,7 +19,6 @@ The system:
 ---
 
 ##  Project Structure
-
 | File/Folder                   | Description                                                                     |
 | :---------------------------- | :------------------------------------------------------------------------------ |
 | `main.py`                     | Main entry point for model loading, parallelism configuration, and data export. |
@@ -35,6 +34,8 @@ The system:
 | `frontend/tailwind.config.js` | Tailwind CSS configuration.                                                     |
 | `frontend/postcss.config.js`  | PostCSS + Autoprefixer configuration.                                           |
 | `frontend/package.json`       | Frontend dependencies and scripts.                                              |
+| `load_model/code_files/user_inputs.json` | JSON configuration file controlling parallelism, topology, hardware, training, and visualization parameters. |
+| `load_model/tiny_llama_model/tiny_llama.onnx` | Example ONNX model (Tiny-LLaMA) used for testing/analysis.                |
 
 
 ---
@@ -85,15 +86,6 @@ React frontend loads data.json and displays config comparisons.
 
 ---
 
-##  Example Navigation
-
-1. Start from `data_0_detail.svg` (overview of a replica).
-2. Click on a stage (e.g., Stage 0) → open `stage_0_data_0_detail.svg`.
-3. Click on a layer (e.g., Layer 5) → open `layer_5_data_0_detail.svg`.
-4. Click on a Send-Recv operation → open GPU communication graph.
-
----
-
 ##  Requirements
 
 - Python 3.8+
@@ -108,14 +100,50 @@ Graphviz must be installed on your system for SVG generation.
 
 ---
 
-## Future Work
+## 🚀 How to Run the Project
 
-- Adding Tensor Parallelism split.
-- More realistic modeling of microbatch flow.
-- Memory usage and communication cost estimation.
+**This project has two parts:**
+ 1. Backend (Python) – loads the ONNX model, applies the chosen parallelism configuration, and generates frontend/public/data.json
+ 2. Frontend (React) – visualizes the results (tables + charts) using data.json
+
+**⚠️ Configuration (important!)**
+
+Before running the backend, edit the JSON file:
+   load_model/code_files/user_inputs.json
+ This file defines:
+   - parallelism (d / t / p sizes)
+   - topology (GPUs, bandwidth, latency)
+   - hardware (FLOP rate, etc.)
+   - training (dataset size, batch size, micro-batches)
+   - visualization (show_config_tree)
+
+**➡️ To visualize a specific configuration tree, update "visualization" values inside user_inputs.json before running main.py**
 
 ---
+# 🔧 Backend (Python) 
 
-## Author
+1. Create and activate a virtual environment (Windows example)
+python -m venv .venv
+.venv\Scripts\activate
 
+2. Install Python dependencies
+pip install -r requirements.txt
+
+3. Run the analysis – this generates frontend/public/data.json
+python main.py
+
+# 🎨 Frontend (React)
+
+1. Navigate to the frontend folder
+cd frontend
+
+2. Install project dependencies
+npm install
+
+3. (If not already configured) Install TailwindCSS and tools
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+4. Start the development server (http://localhost:3000)
+npm.cmd start
 ---
