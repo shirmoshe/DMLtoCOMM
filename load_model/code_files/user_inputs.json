@@ -2,6 +2,11 @@
   "visualization": {
     "show_config_tree": [0, 0, 0]
   },
+  "paths": {
+    "model_onnx": "load_model/tiny_llama_model/tiny_llama.onnx",
+    "frontend_data_json": "frontend/public/data.json",
+    "svg_out_dir": "svg_file"
+  },
   "topology": {
     "__comment": "type can be: full_mesh, fat_tree",
     "type": "full_mesh",
@@ -10,11 +15,9 @@
     "bandwidth_gbps": 10000000000
   },
   "hardware": {
-    "gpus": [],
     "flop_rate": 1000000000000
   },
   "model": {
-    "onnx_path": "load_model/tiny_llama_model/tiny_llama.onnx",
     "data_size": 100
   },
   "training": {
