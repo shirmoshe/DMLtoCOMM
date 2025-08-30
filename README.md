@@ -66,20 +66,6 @@ Graphviz generates SVGs for hierarchical task graphs.
 React frontend loads data.json and displays config comparisons.
 
 --- 
-# Visualization -
-**defultly diasabeld -to view go to `load_model/code_files/user_inputs.json`
-and edit-
- {
-  "visualization": {
-    "show_config_tree": [0, 0, 0] **
-
-to the config you want e.g. [6,2,2]
-   - Interactive high-level graphs.
-   - Detailed graphs for each data replica.
-   - Stage-level graphs showing layer splits.
-   - GPU graphs showing communication between stages.
-
----
 
 ##  Requirements
 
@@ -141,4 +127,18 @@ npx tailwindcss init -p
 
 4. Start the development server (http://localhost:3000)
 npm.cmd start
+---
+# Visualization -
+**defultly diasabeld -to view go to `load_model/code_files/user_inputs.json`**
+and edit-
+ {
+  "visualization": {
+    "show_config_tree": [0, 0, 0] **
+
+to the config you want e.g. [6,2,2]
+   - Interactive high-level graphs.
+   - Detailed graphs for each data replica.
+   - Stage-level graphs showing layer splits.
+   - GPU graphs showing communication between stages.
+
 ---
