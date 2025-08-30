@@ -65,24 +65,19 @@ Compute costs estimated from operator FLOPs.
 Graphviz generates SVGs for hierarchical task graphs.
 React frontend loads data.json and displays config comparisons.
 
-**Visualization ** - defultly diasabeld -to view go to   
+--- 
+# Visualization -
+**defultly diasabeld -to view go to `load_model/code_files/user_inputs.json`
+and edit-
+ {
+  "visualization": {
+    "show_config_tree": [0, 0, 0] **
+
+to the config you want e.g. [6,2,2]
    - Interactive high-level graphs.
    - Detailed graphs for each data replica.
    - Stage-level graphs showing layer splits.
    - GPU graphs showing communication between stages.
-
----
-
-##  Visualization Examples
-
-- **Data Parallel High-Level Graph**  
-  Shows all data replicas and collective communication.
-
-- **Pipeline Stage Graph**  
-  Shows how layers are grouped into pipeline stages.
-
-- **GPU Communication Graph**  
-  Shows how GPUs at different stages exchange activations.
 
 ---
 
