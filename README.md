@@ -1,5 +1,6 @@
 # DML to COMM - Automated Distributed Machine Learning Communication Trace Generation
-This project provides an automatic system for generating and visualizing task graphs for Distributed Machine Learning (DML), focusing on parallelism strategies: Data Parallelism, Pipeline Parallelism, and Tensor Parallelism.
+sThis project statically analyzes an ONNX model and a chosen parallelism configuration [d, t, p] (data, tensor, pipeline) to estimate communication volume, communication time, and compute time—without running training.
+It then writes the results to frontend/public/data.json, which a React app visualizes (tables + charts).
 
 ---
 
@@ -19,36 +20,51 @@ The system:
 
 ##  Project Structure
 
-| File/Folder | Description                                                                       |
-|:------------|:----------------------------------------------------------------------------------|
-| `main.py` | Main entry point for model loading, parallelism configuration, and visualization. |
-| `onnx_analyze.py` | Loads ONNX models and builds initial operator graphs.                             |
-| `class_Node.py` | Defines the `Node` class representing each operator.                              |
-| `class_GPU.py` | Defines the `GPU` class representing GPU topology (d, p, t coordinates).          |
-| `data_parllel.py` | Handles data parallel replication and collective operations.                      |
-| `pipeline_parallel.py` | Handles pipeline splitting, send_recv ops.                                        |
-| `result_visualization.py` | Creates SVG graphs for stages, layers, and GPU communication.                     |
-| `svg_file/` | Output folder containing generated SVG files.                                     |
+| File/Folder                   | Description                                                                     |
+| :---------------------------- | :------------------------------------------------------------------------------ |
+| `main.py`                     | Main entry point for model loading, parallelism configuration, and data export. |
+| `onnx_analyze.py`             | Loads ONNX models and builds initial operator graphs.                           |
+| `class_Node.py`               | Defines the `Node` class representing each operator.                            |
+| `class_GPU.py`                | Defines the `GPU` class representing GPU topology (d, p, t coordinates).        |
+| `data_parallel.py`            | Handles data parallel replication and collective operations.                    |
+| `pipeline_parallel.py`        | Handles pipeline splitting and send/recv ops.                                   |
+| `result_visualization.py`     | Creates SVG graphs for stages, layers, and GPU communication.                   |
+| `svg_file/`                   | Output folder containing generated SVG files.                                   |
+| `frontend/public/`            | React static assets (`index.html`, generated `data.json`).                      |
+| `frontend/src/`               | React code (`App.tsx`, `index.tsx`, CSS, charts).                               |
+| `frontend/tailwind.config.js` | Tailwind CSS configuration.                                                     |
+| `frontend/postcss.config.js`  | PostCSS + Autoprefixer configuration.                                           |
+| `frontend/package.json`       | Frontend dependencies and scripts.                                              |
+
 
 ---
 
 ## ️ How It Works
 
-1. **Model Parsing**  
-   - Load ONNX model.
-   - Extract operators and build parent-child relationships.
+**1. Model Parsing**
 
-2. **Parallelism Strategies**  
-   - **Data Parallelism**:  
-     - Replicates the full model `d` times.
-     - Adds Read and AllReduce collective ops.
-   - **Pipeline Parallelism**:  
-     - Splits model layers into `p` pipeline stages.
-     - Inserts Send-Recv operations between stages.
-     - Each stage contains a subset of layers.
-   - **Tensor Parallelism** (future work).
+Load ONNX model.
 
-3. **Visualization**  
+Extract operators and build parent-child relationships.
+
+**2. Parallelism Strategies**
+
+**Data Parallelism:** Replicates the full model d times; adds Read and AllReduce ops.
+
+**Pipeline Parallelism:** Splits layers into p stages; inserts Send/Recv ops.
+
+**Tensor Parallelism:** Planned future work.
+
+**3. Cost Estimation**
+
+Communication costs estimated with simple bandwidth model (β = 1/bandwidth).
+
+Compute costs estimated from operator FLOPs.
+
+Graphviz generates SVGs for hierarchical task graphs.
+React frontend loads data.json and displays config comparisons.
+
+**Visualization ** - defultly diasabeld -to view go to   
    - Interactive high-level graphs.
    - Detailed graphs for each data replica.
    - Stage-level graphs showing layer splits.
